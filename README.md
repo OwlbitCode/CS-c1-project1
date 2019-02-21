@@ -8,4 +8,4 @@ repo for the first project for c1
 [![Artifacts Folder](https://img.shields.io/badge/Artifacts-Click%20here%20to%20view%20folder%20-purple.svg)](https://drive.google.com/drive/folders/1k4THpVhGVOyMag9B0azLtj3kBvJXkrwO?usp=sharing)
 
 
-[![SQLite](https://img.shields.io/badge/SQL-Click%20here%20to%20view%20tutorial%20-blue.svg)]https://www.tutorialspoint.com/sqlite/index.htm
+[![SQLite](https://img.shields.io/badge/SQL-Click%20here%20to%20view%20tutorial%20-blue.svg)](https://www.tutorialspoint.com/sqlite/index.htm)

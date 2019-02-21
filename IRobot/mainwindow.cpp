@@ -15,11 +15,11 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::adminLogin(){
-   ui->stackedWidget->setCurrentIndex(1);
+   ui->stackedWidget->setCurrentIndex(2);
 }
 
 void MainWindow::customerLogin(){
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(1);
 
 }
 

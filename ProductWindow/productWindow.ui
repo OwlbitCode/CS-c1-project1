@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Bomb Detecting Robot Options</string>
+   <string>iRobot Options and Plans</string>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>

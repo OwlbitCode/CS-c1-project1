@@ -606,7 +606,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>100.00</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

@@ -26,17 +26,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    contactus.cpp
+    contactus.cpp \
+    custguarantee.cpp
 
 HEADERS += \
-        mainwindow.h \
-    contactus.h
+    contactus.h \
+    custguarantee.h
 
 FORMS += \
-        mainwindow.ui \
-    mainwindow.ui \
-    contactus.ui
+    contactus.ui \
+    custguarantee.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -45,3 +44,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    ../../../../Desktop/thumb.jpg

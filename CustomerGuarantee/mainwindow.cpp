@@ -3,6 +3,8 @@
 #include "contactus.h"
 #include <QDebug>
 
+/*
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -15,12 +17,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_3_clicked()
-{
-    qDebug() << "Return to Home clicked";
-}
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_contactUs_clicked()
 {
     qDebug() << "Contact us button clicked";
     ContactUs * contact = new ContactUs; //allocate memory on the heap
@@ -29,3 +27,9 @@ void MainWindow::on_pushButton_clicked()
     //contact->activateWindow();
 
 }
+
+void MainWindow::on_main_clicked()
+{
+    qDebug() << "Return to Home clicked";
+}
+*/

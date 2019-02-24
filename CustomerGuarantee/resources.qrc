@@ -1,4 +1,4 @@
 <RCC>
-    <qresource prefix="/"/>
     <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/"/>
 </RCC>

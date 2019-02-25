@@ -26,13 +26,25 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        custguarantee.cpp \
+        contactus.cpp \
+    orderWindow.cpp \
+    productWindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        custguarantee.h \
+        contactus.h \
+    orderWindow.h \
+    productWindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        contactus.ui \
+        custguarantee.ui \
+    orderWindow.ui \
+    productWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -40,3 +52,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES +=
+
+RESOURCES += \
+    resource.qrc

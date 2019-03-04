@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -72,3 +73,40 @@ void MainWindow::help(){
     }
 }
 
+// Added Main Window Button for Concept of Operations - js
+/****************************************************************************
+ * METHOD - on_opButton_clicked
+ * --------------------------------------------------------------------------
+ * This method opens the operations (Concept of Operations) page from
+ * the "Operations" button on the customer page.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Makes the operations window active.
+ ***************************************************************************/
+void MainWindow::on_opButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+// Added Return to Main Window Button on Concept of Operations Windows - js
+/****************************************************************************
+ * METHOD - on_opReturnMainButton_clicked
+ * --------------------------------------------------------------------------
+ * This method opens the customer page from the operations (Concept of
+ * Operations) page "Return to Main Window" button.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Makes the customer window active.
+ ***************************************************************************/
+void MainWindow::on_opReturnMainButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}

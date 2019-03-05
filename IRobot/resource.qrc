@@ -4,5 +4,10 @@
         <file>images/robotB.jpg</file>
         <file>images/robotC.jpg</file>
         <file>images/thumb.jpg</file>
+        <file>images/detectbomb.PNG</file>
+        <file>images/bombdisposal.jpg</file>
+        <file>images/environment.PNG</file>
+        <file>images/robotPlant.jpg</file>
+        <file>images/plant.png</file>
     </qresource>
 </RCC>

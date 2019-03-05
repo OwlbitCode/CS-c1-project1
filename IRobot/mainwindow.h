@@ -46,6 +46,8 @@ public slots:
 
     void help();
 
+    void request();
+
 private slots:
     // Added Main Window Button for Concept of Operations - js
     /****************************************************************************

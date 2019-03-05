@@ -31,6 +31,7 @@ void MainWindow::customerLogin(){
     ui->helpLabel3->hide();
     ui->helpLabel4->hide();
     ui->helpLabel5->hide();
+    ui->helpLabel6->hide();
     helpVisable = false;
 }
 
@@ -62,6 +63,8 @@ void MainWindow::help(){
         ui->helpLabel3->show();
         ui->helpLabel4->show();
         ui->helpLabel5->show();
+        ui->helpLabel6->show();
+        ui->pitchWindow->hide();
         helpVisable = true;
     }else{
         ui->helpLabel1->hide();
@@ -69,8 +72,14 @@ void MainWindow::help(){
         ui->helpLabel3->hide();
         ui->helpLabel4->hide();
         ui->helpLabel5->hide();
+        ui->helpLabel6->hide();
+        ui->pitchWindow->show();
         helpVisable = false;
     }
+}
+
+void MainWindow::request(){
+    ui->stackedWidget->setCurrentIndex(4);
 }
 
 // Added Main Window Button for Concept of Operations - js

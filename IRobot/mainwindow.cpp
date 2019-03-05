@@ -5,6 +5,7 @@
 #include "productWindow.h"
 #include <QWidget>
 #include <QDebug>
+#include <QSql>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

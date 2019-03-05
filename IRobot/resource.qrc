@@ -3,5 +3,6 @@
         <file>images/robotA.jpg</file>
         <file>images/robotB.jpg</file>
         <file>images/robotC.jpg</file>
+        <file>images/thumb.jpg</file>
     </qresource>
 </RCC>

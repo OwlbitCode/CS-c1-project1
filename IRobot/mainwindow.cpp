@@ -5,12 +5,15 @@
 #include "productWindow.h"
 #include <QWidget>
 #include <QDebug>
+#include <iostream>
+using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -72,3 +75,80 @@ void MainWindow::help(){
     }
 }
 
+//Added line edits to store company name, address line1, address line2, and level of interest.
+
+
+void MainWindow::on_RPreturnMainButton_clicked()
+{
+       ui->stackedWidget->setCurrentIndex(0);
+
+}
+
+void MainWindow::on_MainRequestPamphletButton_clicked()
+{
+    ui->RPCompanyNamelineEdit->clear();
+    ui->RPAddressOneLineEdit->clear();
+    ui->RPAddressTwoLineEdit->clear();
+    ui->RPInterestcomboBox->clear();
+
+    //clear variables here too
+
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_RPSubmitButton_clicked()
+{
+
+
+    companyNameVar= ui->RPCompanyNamelineEdit->text();
+    qDebug() << "Testing companyNameVar value" << companyNameVar;
+
+    address1Var= ui->RPAddressOneLineEdit->text();
+    qDebug() << "Testing address1Var value" << address1Var;
+
+    address2Var = ui->RPAddressTwoLineEdit->text();
+    qDebug() << "Testing address2Var value" << address2Var;
+
+    PRreasonVar = ui->RPInterestcomboBox->currentIndex();
+
+    switch(PRreasonVar)
+    {
+
+        case 0: PRreasonVar2 = "";
+        break;
+        case 1: PRreasonVar2 = "very interested";
+        break;
+        case 2: PRreasonVar2 = "somewhat interested";
+        break;
+        case 3: PRreasonVar2 =  "not interested";
+        break;
+        case 4: PRreasonVar2 = "never call again";
+        break;
+
+    }
+
+        qDebug() << "Testing customer interest choice" << PRreasonVar2;
+
+
+    if (companyNameVar == "" || address1Var == "" || address2Var == "" || PRreasonVar2 == "")
+    {
+        QMessageBox::information(this, "Empty Fields","Please enter all fields!",QMessageBox::Ok);
+    }
+
+    else
+    {
+
+       //need to store into the data base
+
+       ui->RPCompanyNamelineEdit->clear();
+       ui->RPAddressOneLineEdit->clear();
+       ui->RPAddressTwoLineEdit->clear();
+       ui->RPInterestcomboBox->clear();
+
+       //clear variables before exiting
+
+       ui->stackedWidget->setCurrentIndex(0);
+    }
+
+
+}

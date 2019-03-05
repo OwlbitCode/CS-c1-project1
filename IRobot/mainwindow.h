@@ -9,6 +9,7 @@
 #include <QMainWindow>
 #include "orderWindow.h"
 #include "productWindow.h"
+#include <QString>
 
 
 
@@ -29,6 +30,13 @@ private:
     ContactUs * contact;
     custGuarantee * guaran;
     ProductWindow * products;
+    QString companyNameVar;
+    QString address1Var;
+    QString address2Var;
+    QString interestVar;
+    int PRreasonVar;
+    QString PRreasonVar2;
+
     bool helpVisable;
     
 public slots:
@@ -46,6 +54,11 @@ public slots:
 
     void help();
 
+private slots:
+
+    void on_RPreturnMainButton_clicked();
+    void on_MainRequestPamphletButton_clicked();
+    void on_RPSubmitButton_clicked();
 };
 
 #endif // MAINWINDOW_H

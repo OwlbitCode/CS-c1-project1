@@ -54,11 +54,11 @@ public slots:
 
     void help();
 
-private slots:
+    void requestPamphlet();
 
     void on_RPreturnMainButton_clicked();
-    void on_MainRequestPamphletButton_clicked();
-    void on_RPSubmitButton_clicked();
+    //void on_MainRequestPamphletButton_clicked();
+    //void on_RPSubmitButton_clicked();
 
 private slots:
     // Added Main Window Button for Concept of Operations - js

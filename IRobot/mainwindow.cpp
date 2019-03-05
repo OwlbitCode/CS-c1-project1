@@ -5,7 +5,7 @@
 #include "productWindow.h"
 #include <QWidget>
 #include <QDebug>
-#include <Qsql>
+//#include <Qsql>
 
 using namespace std;
 
@@ -59,6 +59,10 @@ void MainWindow::viewGuarantee(){
 
 }
 
+void MainWindow::requestPamphlet(){
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
 void MainWindow::help(){
     if(!helpVisable){
         ui->helpLabel1->show();
@@ -89,7 +93,7 @@ void MainWindow::on_RPreturnMainButton_clicked()
        ui->stackedWidget->setCurrentIndex(0);
 
 }
-
+/*
 void MainWindow::on_MainRequestPamphletButton_clicked()
 {
     ui->RPCompanyNamelineEdit->clear();
@@ -155,6 +159,8 @@ void MainWindow::on_RPSubmitButton_clicked()
 
        ui->stackedWidget->setCurrentIndex(0);
     }
+}
+*/
 
 // Added Main Window Button for Concept of Operations - js
 /****************************************************************************

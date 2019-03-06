@@ -56,7 +56,7 @@ public slots:
 
     void requestPamphlet();
 
-    void on_RPreturnMainButton_clicked();
+    //void on_RPreturnMainButton_clicked();
     //void on_MainRequestPamphletButton_clicked();
     //void on_RPSubmitButton_clicked();
 
@@ -92,6 +92,9 @@ private slots:
      *      ==> Makes the customer window active.
      ***************************************************************************/
     void on_opReturnMainButton_clicked();
+    //void on_MainRequestPamphletButton_clicked();
+    void on_RPMainRequestPamphletButton_clicked();
+    void on_RPSubmitButton_clicked();
 };
 
 #endif // MAINWINDOW_H

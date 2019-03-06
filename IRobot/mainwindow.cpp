@@ -88,27 +88,21 @@ void MainWindow::help(){
 //Added line edits to store company name, address line1, address line2, and level of interest.
 
 
-void MainWindow::on_RPreturnMainButton_clicked()
-{
-       ui->stackedWidget->setCurrentIndex(0);
 
-}
-/*
-void MainWindow::on_MainRequestPamphletButton_clicked()
+void MainWindow::on_RPMainRequestPamphletButton_clicked()
+
 {
     ui->RPCompanyNamelineEdit->clear();
     ui->RPAddressOneLineEdit->clear();
     ui->RPAddressTwoLineEdit->clear();
     ui->RPInterestcomboBox->clear();
 
-    //clear variables here too
-
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(0);
 }
+
 
 void MainWindow::on_RPSubmitButton_clicked()
 {
-
 
     companyNameVar= ui->RPCompanyNamelineEdit->text();
     qDebug() << "Testing companyNameVar value" << companyNameVar;
@@ -155,12 +149,14 @@ void MainWindow::on_RPSubmitButton_clicked()
        ui->RPAddressTwoLineEdit->clear();
        ui->RPInterestcomboBox->clear();
 
+       QMessageBox::information(this, "Thank you","Thanks for submitting. A representative will get back to you shortly!",QMessageBox::Ok);
+
        //clear variables before exiting
 
        ui->stackedWidget->setCurrentIndex(0);
     }
 }
-*/
+
 
 // Added Main Window Button for Concept of Operations - js
 /****************************************************************************
@@ -199,3 +195,8 @@ void MainWindow::on_opReturnMainButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
+
+
+
+
+

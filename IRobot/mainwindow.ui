@@ -757,7 +757,7 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <property name="title">
-         <string>Company Info</string>
+         <string/>
         </property>
         <widget class="QLineEdit" name="RPCompanyNamelineEdit">
          <property name="geometry">

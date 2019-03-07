@@ -11,6 +11,16 @@
 #include "productWindow.h"
 #include <QString>
 
+/*
+*  INPUT:
+*
+*   companyNameVar: Qstring variable used to store company name ->input by customer
+*   address1Var: Qstring variable used to store company address (line1) -> input by customer
+*   address2Var: Qstring variable used to store company address (line2) -> input by customer
+*   PRreasonVar2: Qstring variable used to store customer interest level -> input by customer
+*   PRreasonVar: int variable used to store the index of customer's choice -> input from user's selection in combo box.
+*********************************************************************************/
+
 
 
 namespace Ui {
@@ -56,9 +66,43 @@ public slots:
 
     void requestPamphlet();
 
-    //void on_RPreturnMainButton_clicked();
-    //void on_MainRequestPamphletButton_clicked();
-    //void on_RPSubmitButton_clicked();
+    // Added Return to Main Window Button on Request Pamphlet Window - cl
+    /****************************************************************************
+     * METHOD - on_RPMainRequestPamphletButton_clicked
+     * --------------------------------------------------------------------------
+     * This method clears all customer input and opens the log in screen from
+     * the Request Pamphlet page "Return to Main Window" button.
+     * --------------------------------------------------------------------------
+     * PRE-CONDITIONS
+     *      No parameters are required.
+     *
+     * POST-CONDITIONS
+     *      ==> Returns nothing.
+     *      ==> Makes the log in screen active.
+     ***************************************************************************/
+
+
+    void on_RPMainRequestPamphletButton_clicked();
+
+    // Added Submit Button on Request Pamphlet Window - cl
+    /****************************************************************************
+     * METHOD - on_RPSubmitButton_clicked
+     * --------------------------------------------------------------------------
+     * This method stores customer input into variables to enter into database.
+     * It then clears all customer input from line edits and opens the log in screen from
+     * the Request Pamphlet page "Return to Main Window" button.
+     * --------------------------------------------------------------------------
+     * PRE-CONDITIONS
+     *      No parameters are required.
+     *
+     * POST-CONDITIONS
+     *      ==> Stores customer input for company name, address1, address2 & interest level
+     *          in variables to be used in the database.
+     *      ==> Makes the log in screen active.
+     ***************************************************************************/
+
+    void on_RPSubmitButton_clicked();
+
 
 private slots:
     // Added Main Window Button for Concept of Operations - js
@@ -77,6 +121,7 @@ private slots:
      ***************************************************************************/
 
     void on_opButton_clicked();
+
     // Added Return to Main Window Button on Concept of Operations Windows - js
     /****************************************************************************
      * METHOD - on_opReturnMainButton_clicked
@@ -91,10 +136,8 @@ private slots:
      *      ==> Returns nothing.
      *      ==> Makes the customer window active.
      ***************************************************************************/
-    void on_opReturnMainButton_clicked();
-    //void on_MainRequestPamphletButton_clicked();
-    void on_RPMainRequestPamphletButton_clicked();
-    void on_RPSubmitButton_clicked();
+
+     void on_opReturnMainButton_clicked();
 };
 
 #endif // MAINWINDOW_H

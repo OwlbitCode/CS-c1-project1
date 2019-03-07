@@ -85,8 +85,21 @@ void MainWindow::help(){
     }
 }
 
-//Added line edits to store company name, address line1, address line2, and level of interest.
 
+// Added Return to Main Window Button on Request Pamphlet Window - cl
+/****************************************************************************
+ * METHOD - on_RPMainRequestPamphletButton_clicked
+ * --------------------------------------------------------------------------
+ * This method clears all customer input and opens the log in screen from
+ * the Request Pamphlet page "Return to Main Window" button.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Makes the log in screen active.
+ ***************************************************************************/
 
 
 void MainWindow::on_RPMainRequestPamphletButton_clicked()
@@ -99,6 +112,23 @@ void MainWindow::on_RPMainRequestPamphletButton_clicked()
 
     ui->stackedWidget->setCurrentIndex(0);
 }
+
+// Added Submit Button on Request Pamphlet Window - cl
+/****************************************************************************
+ * METHOD - on_RPSubmitButton_clicked
+ * --------------------------------------------------------------------------
+ * This method stores customer input into variables to enter into database.
+ * It then clears all customer input from line edits and opens the log in screen from
+ * the Request Pamphlet page "Return to Main Window" button.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Stores customer input for company name, address1, address2 & interest level
+ *          in variables to be used in the database.
+ *      ==> Makes the log in screen active.
+ ***************************************************************************/
 
 
 void MainWindow::on_RPSubmitButton_clicked()

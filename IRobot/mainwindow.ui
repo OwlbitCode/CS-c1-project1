@@ -189,38 +189,23 @@
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
-         <item row="7" column="1">
-          <widget class="QPushButton" name="pushButton_6">
-           <property name="text">
-            <string>Guarantee</string>
+         <item row="8" column="2">
+          <spacer name="horizontalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
-          </widget>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          <item row="9" column="2">
           <widget class="QLabel" name="helpLabel4">
            <property name="text">
             <string>Click the &quot;Help&quot; button again to hide the help options </string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="2">
-          <widget class="QLabel" name="helpLabel3">
-           <property name="text">
-            <string>Click the &quot;Guarantee&quot; button to view our user guarantee</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="2">
-          <widget class="QLabel" name="helpLabel6">
-           <property name="text">
-            <string>Click the &quot;Operations&quot; button to view the details of our robots operating capabilities </string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QPushButton" name="pushButton_5">
-           <property name="text">
-            <string>Our Products</string>
            </property>
           </widget>
          </item>
@@ -237,13 +222,6 @@
            </property>
           </spacer>
          </item>
-         <item row="11" column="1">
-          <widget class="QPushButton" name="pushButton_3">
-           <property name="text">
-            <string>logout</string>
-           </property>
-          </widget>
-         </item>
          <item row="10" column="1">
           <spacer name="verticalSpacer">
            <property name="orientation">
@@ -256,6 +234,48 @@
             </size>
            </property>
           </spacer>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="helpLabel2">
+           <property name="text">
+            <string>Click the &quot;Contact Us&quot; button to reach our team for further help </string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QPushButton" name="pushButton_7">
+           <property name="text">
+            <string>Contact Us</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="pushButton_5">
+           <property name="text">
+            <string>Our Products</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2">
+          <widget class="QLabel" name="helpLabel3">
+           <property name="text">
+            <string>Click the &quot;Guarantee&quot; button to view our user guarantee</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QPushButton" name="opButton">
+           <property name="text">
+            <string>Operations</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="1">
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="text">
+            <string>logout</string>
+           </property>
+          </widget>
          </item>
          <item row="0" column="1">
           <spacer name="verticalSpacer_5">
@@ -283,18 +303,19 @@
            </property>
           </spacer>
          </item>
-         <item row="8" column="1">
-          <spacer name="verticalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
+         <item row="3" column="2">
+          <widget class="QLabel" name="helpLabel6">
+           <property name="text">
+            <string>Click the &quot;Operations&quot; button to view the details of our robots operating capabilities </string>
            </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QPushButton" name="pushButton_8">
+           <property name="text">
+            <string>Help</string>
            </property>
-          </spacer>
+          </widget>
          </item>
          <item row="4" column="1">
           <spacer name="verticalSpacer_2">
@@ -309,22 +330,15 @@
            </property>
           </spacer>
          </item>
-         <item row="1" column="2">
-          <widget class="QLabel" name="helpLabel1">
-           <property name="text">
-            <string>Click the &quot;Our Products&quot; Button to view and purchase the products we have for sale</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="2">
-          <spacer name="horizontalSpacer_6">
+         <item row="8" column="1">
+          <spacer name="verticalSpacer_4">
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Vertical</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>20</width>
+             <height>40</height>
             </size>
            </property>
           </spacer>
@@ -336,31 +350,17 @@
            </property>
           </widget>
          </item>
-         <item row="9" column="1">
-          <widget class="QPushButton" name="pushButton_8">
+         <item row="7" column="1">
+          <widget class="QPushButton" name="pushButton_6">
            <property name="text">
-            <string>Help</string>
+            <string>Guarantee</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
-          <widget class="QPushButton" name="pushButton_7">
+         <item row="1" column="2">
+          <widget class="QLabel" name="helpLabel1">
            <property name="text">
-            <string>Contact Us</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QPushButton" name="opButton">
-           <property name="text">
-            <string>Operations</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="2">
-          <widget class="QLabel" name="helpLabel2">
-           <property name="text">
-            <string>Click the &quot;Contact Us&quot; button to reach our team for further help </string>
+            <string>Click the &quot;Our Products&quot; Button to view and purchase the products we have for sale</string>
            </property>
           </widget>
          </item>
@@ -370,9 +370,9 @@
         <property name="geometry">
          <rect>
           <x>120</x>
-          <y>0</y>
-          <width>801</width>
-          <height>541</height>
+          <y>25</y>
+          <width>780</width>
+          <height>505</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -383,14 +383,14 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;iRobot&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#0055ff;&quot;&gt;Automating your future today&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:120%;&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;iRobot&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#0055ff;&quot;&gt;Automating your future today&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;At iRobot work hard to provide robots for your bomb disposal needs. We offer a wide array of replacable electric friends able to complete the tasks that you don't want to.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Our mechanical miracles move with majesty as they make your major issues minor in a minute. &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;We run our company with the utmost care for the people who are being protected by our products. This includes creating our products with the recycled materials of the earth.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:8px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#0055ff;&quot;&gt;About our products&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Our fleet of top of the line designs are avaible for purcahse today. We provide options that can traverse any terrain that you may come across. Along with this, all robots are able to remove bombs from many different locations such as airports, stores, and your own home! These robots use an IR sensor and a radioactive sensor to be able to detect bombs. This will even be able to detect bombs within a person.&lt;br /&gt;&lt;/span&gt;&lt;img src=&quot;://images/wallelookingup.png&quot; width=&quot;150&quot; height=&quot;150&quot; style=&quot;float: right;&quot; /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;img src=&quot;://images/wallelookingup.png&quot; width=&quot;200&quot; height=&quot;200&quot; style=&quot;float: right;&quot; /&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#0055ff;&quot;&gt;About our products&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:100%;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Our fleet of top of the line designs are avaible for purcahse today. We provide options that can traverse any terrain that you may come across. Along with this, all robots are able to remove bombs from many different locations such as airports, stores, and your own home! These robots use an IR sensor and a radioactive sensor to be able to detect bombs. This will even be able to detect bombs within a person.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>

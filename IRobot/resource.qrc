@@ -3,5 +3,14 @@
         <file>images/robotA.jpg</file>
         <file>images/robotB.jpg</file>
         <file>images/robotC.jpg</file>
+        <file>images/thumb.jpg</file>
+        <file>images/detectbomb.PNG</file>
+        <file>images/bombdisposal.jpg</file>
+        <file>images/environment.PNG</file>
+        <file>images/robotPlant.jpg</file>
+        <file>images/plant.png</file>
+        <file>images/poster.jpg</file>
+        <file>images/But+then+you+end+up+with+this+_602b10c3a0876f33c62105c1140ed910.jpg</file>
+        <file>images/wallelookingup.png</file>
     </qresource>
 </RCC>

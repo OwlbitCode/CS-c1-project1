@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>images/robotA.jpg</file>
-        <file>images/robotB.jpg</file>
-        <file>images/robotC.jpg</file>
-    </qresource>
-</RCC>

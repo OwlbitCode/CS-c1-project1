@@ -63,6 +63,10 @@ void MainWindow::requestPamphlet(){
     ui->stackedWidget->setCurrentIndex(4);
 }
 
+void MainWindow::viewCustomerList(){
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
 void MainWindow::help(){
     if(!helpVisable){
         ui->helpLabel1->show();

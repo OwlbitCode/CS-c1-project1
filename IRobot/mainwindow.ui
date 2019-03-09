@@ -376,8 +376,7 @@
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">
-</string>
+         <string notr="true"/>
         </property>
         <property name="html">
          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -995,8 +994,8 @@ p, li { white-space: pre-wrap; }
    <slot>logout()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>50</x>
-     <y>552</y>
+     <x>59</x>
+     <y>81</y>
     </hint>
     <hint type="destinationlabel">
      <x>233</x>
@@ -1011,8 +1010,8 @@ p, li { white-space: pre-wrap; }
    <slot>logout()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>859</x>
-     <y>542</y>
+     <x>738</x>
+     <y>378</y>
     </hint>
     <hint type="destinationlabel">
      <x>273</x>
@@ -1027,8 +1026,8 @@ p, li { white-space: pre-wrap; }
    <slot>viewProducts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>75</x>
-     <y>118</y>
+     <x>84</x>
+     <y>81</y>
     </hint>
     <hint type="destinationlabel">
      <x>697</x>
@@ -1043,8 +1042,8 @@ p, li { white-space: pre-wrap; }
    <slot>contacts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>57</x>
-     <y>303</y>
+     <x>66</x>
+     <y>81</y>
     </hint>
     <hint type="destinationlabel">
      <x>697</x>
@@ -1059,8 +1058,8 @@ p, li { white-space: pre-wrap; }
    <slot>viewGuarantee()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>75</x>
-     <y>389</y>
+     <x>84</x>
+     <y>81</y>
     </hint>
     <hint type="destinationlabel">
      <x>697</x>
@@ -1075,8 +1074,8 @@ p, li { white-space: pre-wrap; }
    <slot>help()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>94</x>
-     <y>475</y>
+     <x>103</x>
+     <y>81</y>
     </hint>
     <hint type="destinationlabel">
      <x>734</x>
@@ -1100,6 +1099,22 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_10</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>viewCustomerList()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>361</x>
+     <y>361</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>355</x>
+     <y>656</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>adminLogin()</slot>
@@ -1110,5 +1125,6 @@ p, li { white-space: pre-wrap; }
   <slot>viewGuarantee()</slot>
   <slot>help()</slot>
   <slot>requestPamphlet()</slot>
+  <slot>viewCustomerList()</slot>
  </slots>
 </ui>

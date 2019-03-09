@@ -10,6 +10,7 @@
 #include "orderWindow.h"
 #include "productWindow.h"
 #include <QString>
+#include <QtSql>
 
 /*
 *  INPUT:
@@ -46,9 +47,12 @@ private:
     QString interestVar;
     int PRreasonVar;
     QString PRreasonVar2;
+    QSqlDatabase database;
 
     bool helpVisable;
-    
+    bool connectToCustomerList();
+    void closeDatabase();
+
 public slots:
     void adminLogin();
     

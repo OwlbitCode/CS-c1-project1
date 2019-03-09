@@ -25,6 +25,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::adminLogin(){
    ui->stackedWidget->setCurrentIndex(2);
+   if(database.open()){
+       closeDatabase();
+   }
 }
 
 void MainWindow::customerLogin(){
@@ -65,6 +68,27 @@ void MainWindow::requestPamphlet(){
 
 void MainWindow::viewCustomerList(){
     ui->stackedWidget->setCurrentIndex(5);
+    connectToCustomerList();
+
+    if(!database.open())
+    {
+        ui->stackedWidget->setCurrentIndex(2);
+        closeDatabase();
+
+    }else{
+
+        QSqlQueryModel * modal = new QSqlQueryModel();
+
+        QSqlQuery * qry = new QSqlQuery(database);
+
+        qry->prepare("select * from customers");
+
+        qry->exec();
+        modal->setQuery(*qry);
+        ui->tableView->setModel(modal);
+
+        qDebug() << (modal->rowCount());
+    }
 }
 
 void MainWindow::help(){
@@ -230,7 +254,25 @@ void MainWindow::on_opReturnMainButton_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
+bool MainWindow::connectToCustomerList(){
+    database = QSqlDatabase::addDatabase("QSQLITE");
+    database.setDatabaseName("customerList.db");
 
+    if(!database.open()){
+        qDebug() << ("panic");
+        return false;
+    }
+
+    qDebug() << ("Don't panic");
+    return true;
+}
+
+void MainWindow::closeDatabase(){
+    database.close();
+    database.removeDatabase(QSqlDatabase::defaultConnection);
+    qDebug() << ("Closed");
+
+}
 
 
 

@@ -66,6 +66,24 @@ void MainWindow::requestPamphlet(){
     ui->stackedWidget->setCurrentIndex(4);
 }
 
+void MainWindow::populate(){
+    QString name = ui->comboBox->currentText();
+    QString Company, address, key, interestLevel;
+
+    QSqlQuery qry;
+
+    qry.prepare("select * from customers where company='"+ name + "'");
+
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            ui->
+        }
+    }
+
+}
+
 void MainWindow::viewCustomerList(){
     ui->stackedWidget->setCurrentIndex(5);
     connectToCustomerList();
@@ -88,8 +106,19 @@ void MainWindow::viewCustomerList(){
         ui->tableView->setModel(modal);
 
         qDebug() << (modal->rowCount());
+
+        QSqlQueryModel * combo = new QSqlQueryModel();
+
+        qry->prepare("select Company from customers");
+        qry->exec();
+
+        combo->setQuery(*qry);
+
+        ui->comboBox->setModel(combo);
+
     }
 }
+
 
 void MainWindow::help(){
     if(!helpVisable){

@@ -72,6 +72,9 @@ public slots:
 
     void viewCustomerList();
 
+    void populate();
+
+
     // Added Return to Main Window Button on Request Pamphlet Window - cl
     /****************************************************************************
      * METHOD - on_RPMainRequestPamphletButton_clicked

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>964</width>
-    <height>623</height>
+    <width>941</width>
+    <height>603</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -919,13 +919,13 @@ p, li { white-space: pre-wrap; }
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="page">
+      <widget class="QWidget" name="CustomerViewer">
        <widget class="QTableView" name="tableView">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>921</width>
+          <width>651</width>
           <height>461</height>
          </rect>
         </property>
@@ -943,28 +943,28 @@ p, li { white-space: pre-wrap; }
          <item>
           <widget class="QPushButton" name="pushButton_16">
            <property name="text">
-            <string>PushButton</string>
+            <string>Edit Selected</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton_15">
            <property name="text">
-            <string>PushButton</string>
+            <string>Sort Alpha</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton_14">
            <property name="text">
-            <string>PushButton</string>
+            <string>key</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton_13">
            <property name="text">
-            <string>PushButton</string>
+            <string>something</string>
            </property>
           </widget>
          </item>
@@ -974,6 +974,68 @@ p, li { white-space: pre-wrap; }
             <string>back</string>
            </property>
           </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="verticalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>659</x>
+          <y>6</y>
+          <width>261</width>
+          <height>451</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Select Customer</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Company</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="companyEdit"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Address</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="addressEdit"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Interest Level</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="InterestEdit"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>Key</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="keyEdit"/>
          </item>
         </layout>
        </widget>
@@ -987,7 +1049,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>964</width>
+     <width>941</width>
      <height>21</height>
     </rect>
    </property>
@@ -1089,7 +1151,7 @@ p, li { white-space: pre-wrap; }
      <y>132</y>
     </hint>
     <hint type="destinationlabel">
-     <x>697</x>
+     <x>695</x>
      <y>84</y>
     </hint>
    </hints>
@@ -1105,7 +1167,7 @@ p, li { white-space: pre-wrap; }
      <y>303</y>
     </hint>
     <hint type="destinationlabel">
-     <x>697</x>
+     <x>695</x>
      <y>236</y>
     </hint>
    </hints>
@@ -1121,7 +1183,7 @@ p, li { white-space: pre-wrap; }
      <y>389</y>
     </hint>
     <hint type="destinationlabel">
-     <x>697</x>
+     <x>695</x>
      <y>354</y>
     </hint>
    </hints>
@@ -1137,7 +1199,7 @@ p, li { white-space: pre-wrap; }
      <y>475</y>
     </hint>
     <hint type="destinationlabel">
-     <x>734</x>
+     <x>695</x>
      <y>397</y>
     </hint>
    </hints>
@@ -1154,7 +1216,7 @@ p, li { white-space: pre-wrap; }
     </hint>
     <hint type="destinationlabel">
      <x>496</x>
-     <y>669</y>
+     <y>588</y>
     </hint>
    </hints>
   </connection>
@@ -1170,7 +1232,7 @@ p, li { white-space: pre-wrap; }
     </hint>
     <hint type="destinationlabel">
      <x>355</x>
-     <y>656</y>
+     <y>588</y>
     </hint>
    </hints>
   </connection>
@@ -1185,8 +1247,24 @@ p, li { white-space: pre-wrap; }
      <y>549</y>
     </hint>
     <hint type="destinationlabel">
-     <x>787</x>
-     <y>682</y>
+     <x>695</x>
+     <y>588</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>populate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>849</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>764</x>
+     <y>810</y>
     </hint>
    </hints>
   </connection>
@@ -1201,5 +1279,6 @@ p, li { white-space: pre-wrap; }
   <slot>help()</slot>
   <slot>requestPamphlet()</slot>
   <slot>viewCustomerList()</slot>
+  <slot>populate()</slot>
  </slots>
 </ui>

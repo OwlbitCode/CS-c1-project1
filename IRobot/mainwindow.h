@@ -147,6 +147,9 @@ private slots:
      ***************************************************************************/
 
      void on_opReturnMainButton_clicked();
+     void on_viewOrdersAdminButton_clicked();
+     void on_ovCompanyNameCombo_currentIndexChanged();
+     void on_ovReturnButton_clicked();
 };
 
 #endif // MAINWINDOW_H

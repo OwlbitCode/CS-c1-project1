@@ -309,4 +309,88 @@ void MainWindow::closeDatabase(){
 }
 
 
+/*********************
+ *
+ ***********************/
+void MainWindow::on_viewOrdersAdminButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
+    connectToCustomerList();
 
+    if(!database.open())
+    {
+        ui->stackedWidget->setCurrentIndex(2);
+        closeDatabase();
+
+    }
+    else
+    {
+        QSqlQueryModel * modal = new QSqlQueryModel();
+
+        QSqlQuery * qry = new QSqlQuery(database);
+
+        qry->prepare("select orderID, companyName, totalPrice from orders");
+
+        qry->exec();
+        modal->setQuery(*qry);
+        ui->ovTable->setModel(modal);
+
+        qDebug() << (modal->rowCount());
+
+        QSqlQueryModel * combo = new QSqlQueryModel();
+
+        qry->prepare("select companyName from orders");
+        qry->exec();
+
+        combo->setQuery(*qry);
+
+        ui->ovCompanyNameCombo->setModel(combo);
+    }
+}
+
+void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
+{
+    QString name = ui->ovCompanyNameCombo->currentText();
+    qDebug() << name;
+    QString orderID, companyName, robotAQty, robotBQty,
+            robotCQty, robotAPlan, robotBPlan, robotCPlan,
+            robotASub, robotBSub, robotCSub, subtotal,
+            shipping, salesTax, totalPrice;
+
+    QSqlQuery qry;
+
+    qry.prepare("select * from orders where companyName='"+ name + "'");
+
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            ui->ovOrderID->setText(qry.value(0).toString());
+            ui->ovRobotAQty->setText(qry.value(2).toString());
+            ui->ovRobotBQty->setText(qry.value(3).toString());
+            ui->ovRobotCQty->setText(qry.value(4).toString());
+            ui->ovRobotAPlan->setText(qry.value(5).toString());
+            ui->ovRobotBPlan->setText(qry.value(6).toString());
+            ui->ovRobotCPlan->setText(qry.value(7).toString());
+            ui->ovRobotASub->setText(qry.value(8).toString());
+            ui->ovRobotBSub->setText(qry.value(9).toString());
+            ui->ovRobotCSub->setText(qry.value(10).toString());
+            ui->ovSubtotal->setText(qry.value(11).toString());
+            ui->ovShipping->setText(qry.value(12).toString());
+            ui->ovSalesTax->setText(qry.value(13).toString());
+            ui->ovTotalPrice->setText(qry.value(14).toString());
+        }
+    }else{
+        qDebug() << ("dun broke");
+    }
+}
+
+
+
+void MainWindow::on_ovReturnButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    if(database.open()){
+        closeDatabase();
+    }
+}

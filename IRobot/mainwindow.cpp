@@ -78,8 +78,13 @@ void MainWindow::populate(){
     {
         while(qry.next())
         {
-            ui->
+            ui->companyEdit->setText(qry.value(0).toString());
+            ui->addressEdit->setText(qry.value(1).toString());
+            ui->InterestEdit->setText(qry.value(2).toString());
+            ui->keyEdit->setText(qry.value(3).toString());
         }
+    }else{
+        qDebug() << ("dun broke");
     }
 
 }

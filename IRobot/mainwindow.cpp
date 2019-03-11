@@ -111,6 +111,11 @@ void MainWindow::viewCustomerList(){
         ui->tableView->setModel(modal);
 
         qDebug() << (modal->rowCount());
+        ui->tableView->setColumnWidth(0,170);
+        ui->tableView->setColumnWidth(1,275);
+        ui->tableView->setColumnWidth(2,110);
+        ui->tableView->setColumnWidth(3,75);
+
 
         QSqlQueryModel * combo = new QSqlQueryModel();
 
@@ -147,6 +152,125 @@ void MainWindow::help(){
     }
 }
 
+void MainWindow::editCustomer(){
+    QString company, address, interest, key;
+    company = ui->companyEdit->text();
+    address = ui->addressEdit->text();
+    interest = ui->InterestEdit->text();
+    key = ui->keyEdit->text();
+
+    QSqlQuery query;
+    query.prepare("update customers set Company ='" + company +"', Address='"+address+
+                "', Interest='" +interest+ "', Key='"+key+"' where Company = '" + company+"'");
+    if(query.exec())
+        qDebug()<<("updated");
+    else
+        qDebug()<<("Update failed check DB");
+
+    QSqlQueryModel * modal = new QSqlQueryModel();
+
+    QSqlQuery * qry = new QSqlQuery(database);
+
+    qry->prepare("select * from customers");
+
+    qry->exec();
+    modal->setQuery(*qry);
+    ui->tableView->setModel(modal);
+    qDebug() << (modal->rowCount());
+
+    ui->tableView->setColumnWidth(0,170);
+    ui->tableView->setColumnWidth(1,275);
+    ui->tableView->setColumnWidth(2,110);
+    ui->tableView->setColumnWidth(3,75);
+
+    QSqlQueryModel * combo = new QSqlQueryModel();
+
+    qry->prepare("select Company from customers");
+    qry->exec();
+
+    combo->setQuery(*qry);
+
+    ui->comboBox->setModel(combo);
+}
+
+void MainWindow::addCustomer(){
+    QString company, address, interest, key;
+    company = ui->companyEdit->text();
+    address = ui->addressEdit->text();
+    interest = ui->InterestEdit->text();
+    key = ui->keyEdit->text();
+
+    QSqlQuery query;
+    query.prepare("insert into customers (Company,Address,Interest,Key) values ('"+company+"','"+address+"','"+interest+"','"+key+"')");
+    if(query.exec())
+        qDebug()<<("added");
+    else
+        qDebug()<<("add failed");
+
+    QSqlQueryModel * modal = new QSqlQueryModel();
+
+    QSqlQuery * qry = new QSqlQuery(database);
+
+    qry->prepare("select * from customers");
+
+    qry->exec();
+    modal->setQuery(*qry);
+    ui->tableView->setModel(modal);
+    qDebug() << (modal->rowCount());
+
+    ui->tableView->setColumnWidth(0,170);
+    ui->tableView->setColumnWidth(1,275);
+    ui->tableView->setColumnWidth(2,110);
+    ui->tableView->setColumnWidth(3,75);
+
+    QSqlQueryModel * combo = new QSqlQueryModel();
+
+    qry->prepare("select Company from customers");
+    qry->exec();
+
+    combo->setQuery(*qry);
+
+    ui->comboBox->setModel(combo);
+}
+void MainWindow::deleteCustomer(){
+    QString company, address, interest, key;
+    company = ui->companyEdit->text();
+    address = ui->addressEdit->text();
+    interest = ui->InterestEdit->text();
+    key = ui->keyEdit->text();
+
+    QSqlQuery query;
+    query.prepare("Delete from customers where Company='"+company+"'");
+    if(query.exec())
+        qDebug()<<("delete");
+    else
+        qDebug()<<("delete failed");
+
+    QSqlQueryModel * modal = new QSqlQueryModel();
+
+    QSqlQuery * qry = new QSqlQuery(database);
+
+    qry->prepare("select * from customers");
+
+    qry->exec();
+    modal->setQuery(*qry);
+    ui->tableView->setModel(modal);
+    qDebug() << (modal->rowCount());
+
+    ui->tableView->setColumnWidth(0,170);
+    ui->tableView->setColumnWidth(1,275);
+    ui->tableView->setColumnWidth(2,110);
+    ui->tableView->setColumnWidth(3,75);
+
+    QSqlQueryModel * combo = new QSqlQueryModel();
+
+    qry->prepare("select Company from customers");
+    qry->exec();
+
+    combo->setQuery(*qry);
+
+    ui->comboBox->setModel(combo);
+}
 
 // Added Return to Main Window Button on Request Pamphlet Window - cl
 /****************************************************************************

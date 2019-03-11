@@ -74,6 +74,12 @@ public slots:
 
     void populate();
 
+    void addCustomer();
+
+    void editCustomer();
+
+    void deleteCustomer();
+
 
     // Added Return to Main Window Button on Request Pamphlet Window - cl
     /****************************************************************************

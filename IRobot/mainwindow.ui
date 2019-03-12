@@ -196,65 +196,26 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>799</width>
+        <width>937</width>
         <height>511</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="8" column="2">
-        <spacer name="horizontalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="9" column="2">
-        <widget class="QLabel" name="helpLabel4">
+       <item row="9" column="1">
+        <widget class="QPushButton" name="pushButton_6">
          <property name="text">
-          <string>Click the &quot;Help&quot; button again to hide the help options </string>
+          <string>Guarantee</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="1">
-        <spacer name="verticalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="10" column="1">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>28</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="5" column="2">
-        <widget class="QLabel" name="helpLabel2">
+       <item row="1" column="2">
+        <widget class="QLabel" name="helpLabel1">
          <property name="text">
-          <string>Click the &quot;Contact Us&quot; button to reach our team for further help </string>
+          <string>Click the &quot;Our Products&quot; Button to view and purchase the products we have for sale</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
+       <item row="7" column="1">
         <widget class="QPushButton" name="pushButton_7">
          <property name="text">
           <string>Contact Us</string>
@@ -268,10 +229,43 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="2">
-        <widget class="QLabel" name="helpLabel3">
+       <item row="8" column="1">
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="11" column="2">
+        <widget class="QLabel" name="helpLabel4">
          <property name="text">
-          <string>Click the &quot;Guarantee&quot; button to view our user guarantee</string>
+          <string>Click the &quot;Help&quot; button again to hide the help options </string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>28</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="7" column="2">
+        <widget class="QLabel" name="helpLabel2">
+         <property name="text">
+          <string>Click the &quot;Contact Us&quot; button to reach our team for further help </string>
          </property>
         </widget>
        </item>
@@ -282,7 +276,7 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="1">
+       <item row="13" column="1">
         <widget class="QPushButton" name="pushButton_3">
          <property name="text">
           <string>logout</string>
@@ -315,6 +309,13 @@
          </property>
         </spacer>
        </item>
+       <item row="9" column="2">
+        <widget class="QLabel" name="helpLabel3">
+         <property name="text">
+          <string>Click the &quot;Guarantee&quot; button to view our user guarantee</string>
+         </property>
+        </widget>
+       </item>
        <item row="3" column="2">
         <widget class="QLabel" name="helpLabel6">
          <property name="text">
@@ -322,10 +323,23 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
-        <widget class="QPushButton" name="pushButton_8">
+       <item row="10" column="1">
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="13" column="2">
+        <widget class="QLabel" name="helpLabel5">
          <property name="text">
-          <string>Help</string>
+          <string>Click the &quot;Logout&quot; button to logout and return to the login screen</string>
          </property>
         </widget>
        </item>
@@ -342,8 +356,15 @@
          </property>
         </spacer>
        </item>
-       <item row="8" column="1">
-        <spacer name="verticalSpacer_4">
+       <item row="11" column="1">
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="text">
+          <string>Help</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <spacer name="verticalSpacer_8">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -355,24 +376,30 @@
          </property>
         </spacer>
        </item>
-       <item row="11" column="2">
-        <widget class="QLabel" name="helpLabel5">
+       <item row="10" column="2">
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="1">
+        <widget class="QPushButton" name="pushButton_20">
          <property name="text">
-          <string>Click the &quot;Logout&quot; button to logout and return to the login screen</string>
+          <string>Customer reviews</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
-        <widget class="QPushButton" name="pushButton_6">
+       <item row="5" column="2">
+        <widget class="QLabel" name="helpLabel7">
          <property name="text">
-          <string>Guarantee</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QLabel" name="helpLabel1">
-         <property name="text">
-          <string>Click the &quot;Our Products&quot; Button to view and purchase the products we have for sale</string>
+          <string>Clidk &quot;Customer Reviews&quot;  to see what our other satisfied customers are saying about us</string>
          </property>
         </widget>
        </item>
@@ -1424,6 +1451,37 @@ p, li { white-space: pre-wrap; }
       </layout>
      </widget>
     </widget>
+    <widget class="QWidget" name="page">
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>366</x>
+        <y>22</y>
+        <width>241</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 36pt &quot;Script&quot; ;</string>
+      </property>
+      <property name="text">
+       <string>Customer Reviews</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_21">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>290</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -1497,8 +1555,8 @@ p, li { white-space: pre-wrap; }
    <slot>logout()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>81</x>
-     <y>83</y>
+     <x>82</x>
+     <y>563</y>
     </hint>
     <hint type="destinationlabel">
      <x>233</x>
@@ -1513,8 +1571,8 @@ p, li { white-space: pre-wrap; }
    <slot>logout()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>360</x>
-     <y>353</y>
+     <x>684</x>
+     <y>380</y>
     </hint>
     <hint type="destinationlabel">
      <x>273</x>
@@ -1529,8 +1587,8 @@ p, li { white-space: pre-wrap; }
    <slot>viewProducts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>106</x>
-     <y>83</y>
+     <x>107</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>695</x>
@@ -1545,8 +1603,8 @@ p, li { white-space: pre-wrap; }
    <slot>contacts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>88</x>
-     <y>83</y>
+     <x>89</x>
+     <y>348</y>
     </hint>
     <hint type="destinationlabel">
      <x>695</x>
@@ -1561,8 +1619,8 @@ p, li { white-space: pre-wrap; }
    <slot>viewGuarantee()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>106</x>
-     <y>83</y>
+     <x>107</x>
+     <y>423</y>
     </hint>
     <hint type="destinationlabel">
      <x>695</x>
@@ -1577,8 +1635,8 @@ p, li { white-space: pre-wrap; }
    <slot>help()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>106</x>
-     <y>83</y>
+     <x>107</x>
+     <y>498</y>
     </hint>
     <hint type="destinationlabel">
      <x>695</x>
@@ -1609,8 +1667,8 @@ p, li { white-space: pre-wrap; }
    <slot>viewCustomerList()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>360</x>
-     <y>353</y>
+     <x>361</x>
+     <y>380</y>
     </hint>
     <hint type="destinationlabel">
      <x>355</x>
@@ -1698,6 +1756,38 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_20</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>viewReviews()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>263</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>93</x>
+     <y>718</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_21</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>customerLogin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>462</x>
+     <y>343</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>469</x>
+     <y>797</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>adminLogin()</slot>
@@ -1714,5 +1804,6 @@ p, li { white-space: pre-wrap; }
   <slot>editCustomer()</slot>
   <slot>addCustomer()</slot>
   <slot>deleteCustomer()</slot>
+  <slot>viewReviews()</slot>
  </slots>
 </ui>

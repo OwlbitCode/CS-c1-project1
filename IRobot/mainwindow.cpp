@@ -38,6 +38,7 @@ void MainWindow::customerLogin(){
     ui->helpLabel4->hide();
     ui->helpLabel5->hide();
     ui->helpLabel6->hide();
+    ui->helpLabel7->hide();
     helpVisable = false;
 }
 
@@ -111,10 +112,10 @@ void MainWindow::viewCustomerList(){
         ui->tableView->setModel(modal);
 
         qDebug() << (modal->rowCount());
-        ui->tableView->setColumnWidth(0,170);
-        ui->tableView->setColumnWidth(1,275);
-        ui->tableView->setColumnWidth(2,110);
-        ui->tableView->setColumnWidth(3,75);
+        ui->tableView->setColumnWidth(0,160);
+        ui->tableView->setColumnWidth(1,260);
+        ui->tableView->setColumnWidth(2,150);
+        ui->tableView->setColumnWidth(3,60);
 
 
         QSqlQueryModel * combo = new QSqlQueryModel();
@@ -138,6 +139,7 @@ void MainWindow::help(){
         ui->helpLabel4->show();
         ui->helpLabel5->show();
         ui->helpLabel6->show();
+        ui->helpLabel7->show();
         ui->pitchWindow->hide();
         helpVisable = true;
     }else{
@@ -147,6 +149,7 @@ void MainWindow::help(){
         ui->helpLabel4->hide();
         ui->helpLabel5->hide();
         ui->helpLabel6->hide();
+        ui->helpLabel7->hide();
         ui->pitchWindow->show();
         helpVisable = false;
     }
@@ -161,7 +164,8 @@ void MainWindow::editCustomer(){
 
     QSqlQuery query;
     query.prepare("update customers set Company ='" + company +"', Address='"+address+
-                "', Interest='" +interest+ "', Key='"+key+"' where Company = '" + company+"'");
+                "', Interest='" +interest+ "', Value='"+key+"' where Company = '" + company+"'");
+
     if(query.exec())
         qDebug()<<("updated");
     else
@@ -178,10 +182,10 @@ void MainWindow::editCustomer(){
     ui->tableView->setModel(modal);
     qDebug() << (modal->rowCount());
 
-    ui->tableView->setColumnWidth(0,170);
-    ui->tableView->setColumnWidth(1,275);
-    ui->tableView->setColumnWidth(2,110);
-    ui->tableView->setColumnWidth(3,75);
+    ui->tableView->setColumnWidth(0,160);
+    ui->tableView->setColumnWidth(1,260);
+    ui->tableView->setColumnWidth(2,150);
+    ui->tableView->setColumnWidth(3,60);
 
     QSqlQueryModel * combo = new QSqlQueryModel();
 
@@ -201,7 +205,7 @@ void MainWindow::addCustomer(){
     key = ui->keyEdit->text();
 
     QSqlQuery query;
-    query.prepare("insert into customers (Company,Address,Interest,Key) values ('"+company+"','"+address+"','"+interest+"','"+key+"')");
+    query.prepare("insert into customers (Company,Address,Interest,Value) values ('"+company+"','"+address+"','"+interest+"','"+key+"')");
     if(query.exec())
         qDebug()<<("added");
     else
@@ -218,10 +222,10 @@ void MainWindow::addCustomer(){
     ui->tableView->setModel(modal);
     qDebug() << (modal->rowCount());
 
-    ui->tableView->setColumnWidth(0,170);
-    ui->tableView->setColumnWidth(1,275);
-    ui->tableView->setColumnWidth(2,110);
-    ui->tableView->setColumnWidth(3,75);
+    ui->tableView->setColumnWidth(0,160);
+    ui->tableView->setColumnWidth(1,260);
+    ui->tableView->setColumnWidth(2,150);
+    ui->tableView->setColumnWidth(3,60);
 
     QSqlQueryModel * combo = new QSqlQueryModel();
 
@@ -257,10 +261,10 @@ void MainWindow::deleteCustomer(){
     ui->tableView->setModel(modal);
     qDebug() << (modal->rowCount());
 
-    ui->tableView->setColumnWidth(0,170);
-    ui->tableView->setColumnWidth(1,275);
-    ui->tableView->setColumnWidth(2,110);
-    ui->tableView->setColumnWidth(3,75);
+    ui->tableView->setColumnWidth(0,160);
+    ui->tableView->setColumnWidth(1,260);
+    ui->tableView->setColumnWidth(2,150);
+    ui->tableView->setColumnWidth(3,60);
 
     QSqlQueryModel * combo = new QSqlQueryModel();
 
@@ -517,4 +521,8 @@ void MainWindow::on_ovReturnButton_clicked()
     if(database.open()){
         closeDatabase();
     }
+}
+
+void MainWindow::viewProducts(){
+    ui->stackedWidget->(6);
 }

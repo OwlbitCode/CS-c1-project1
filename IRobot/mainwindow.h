@@ -80,6 +80,8 @@ public slots:
 
     void deleteCustomer();
 
+    void viewReviews();
+
 
     // Added Return to Main Window Button on Request Pamphlet Window - cl
     /****************************************************************************

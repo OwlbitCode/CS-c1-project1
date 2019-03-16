@@ -523,6 +523,8 @@ void MainWindow::on_ovReturnButton_clicked()
     }
 }
 
-void MainWindow::viewProducts(){
-    ui->stackedWidget->(6);
+void MainWindow::viewReviews(){
+    ui->stackedWidget->setCurrentIndex(7);
 }
+
+

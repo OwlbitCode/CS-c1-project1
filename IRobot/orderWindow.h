@@ -11,6 +11,10 @@
 #include <QMessageBox>
 #include <QString>
 #include <QDebug>
+#include <QtSql>
+#include<QSqlQuery>
+
+
 
 namespace Ui {
 class OrderWindow;
@@ -149,6 +153,8 @@ private slots:
     //! Saves credit card CVV
     /*! POST: ccCvv from converted cvvLine->text() */
     void on_cvvLine_editingFinished();
+    bool connectToCustomerList();
+    void closeDatabase();
 
 private:
     int    robotAQty;      // CALC&OUT - quantity of robot A
@@ -164,6 +170,7 @@ private:
     double robotCSubtotal; // CALC&OUT - robot C's subtotal
 
     double subtotal;       // CALC&OUT - subtotal of all robots (A, B, and C)
+    double shipping;       // CALC&OUT - shipping
     double salesTax;       // CALC&OUT - sales tax amount for order
     double totalPrice;     // CALC&OUT - total price for order
 
@@ -178,6 +185,9 @@ private:
     int     ccMonth;            // IN&OUT - the credit card expire month
     int     ccYear;             // IN&OUT - the credit card expire year
     int     ccCvv;              // IN&OUT - the credit card CVV number
+    QSqlDatabase database;      // IN&OUT - database object to store
+    QString orderID;            // CALC& OUT - order ID
+
 
     Ui::OrderWindow *ui;
 };

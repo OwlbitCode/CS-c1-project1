@@ -475,21 +475,224 @@ void OrderWindow::setOrderTotalPrice()
  ***************************************************************************/
 void OrderWindow::on_placeOrderButton_clicked()
 {
-    // Open and display order confirmation message box
-    QMessageBox::information(this, "Order Confirmation",
-                             "Thank you for your order.",QMessageBox::Ok);
 
-    // Shows value of variables that need to be saved to file eventually
-    qDebug() << "Number of Robot A: " << robotAQty;
-    qDebug() << "Robot A plan index #: " << robotAPlan;
-    qDebug() << "Number of Robot B: " << robotBQty;
-    qDebug() << "Robot B plan index #: " << robotBPlan;
-    qDebug() << "Number of Robot C: " << robotCQty;
-    qDebug() << "Robot C plan index #: " << robotCPlan;
-    qDebug() << "Total Order Price: $ " << totalPrice;
+    connectToCustomerList();
 
-    // Accept the dialog
-    accept();
+    if(!database.open())
+    {
+
+    QMessageBox::information(this, "Error",
+                                 "Unable to take order at this time, please contact us!",QMessageBox::Ok);
+    reject();
+
+    }
+
+    else
+
+    {
+
+        shipping = SHIPPING;
+
+        QString robotAPlanStr,robotBPlanStr,robotCPlanStr;
+
+
+
+        qDebug() << "AAAAAAAAAAAAAAAABEFORE Q";
+        QSqlQuery queryName;
+        bool isFound = false;
+
+        queryName.prepare("SELECT Company FROM customers");
+
+        if(queryName.exec())
+        {
+            qDebug() << "Inside queryName.exec";
+
+            while (queryName.next())
+            {
+                if (queryName.value(0)==ccName)
+                {
+                qDebug() << "Name found!";
+                isFound = true;
+
+                }
+            }
+
+         }
+
+        qDebug() << "BBBBBBBBBBBBBBBBBBBBBBBafter while";
+
+        if(isFound)
+        {
+
+            qDebug()<<"robotAQty: " << robotAQty;
+
+            if(robotAQty<1)
+            {
+                robotAPlanStr = "";
+
+            }
+            else
+            {
+
+                switch(robotAPlan)
+                {
+                    case 0: robotAPlanStr = "Basic Plan";
+                    break;
+
+                    case 1: robotAPlanStr = "Basic Plus Plan";
+                    break;
+
+                    case 2: robotAPlanStr = "Premium Plan";
+                    break;
+
+                 }
+             }
+
+            qDebug()<<"robotBQty: " << robotBQty;
+
+         if(robotBQty<1)
+         {
+            robotBPlanStr = "";
+
+         }
+
+         else
+        {
+
+            switch(robotBPlan)
+            {
+            case 0: robotBPlanStr = "Basic Plan";
+            break;
+
+            case 1: robotBPlanStr = "Basic Plus Plan";
+            break;
+
+            case 2: robotBPlanStr = "Premium Plan";
+            break;
+
+            }
+
+         }
+
+        qDebug()<<"robotCQty: " << robotCQty;
+
+        if(robotCQty<1)
+         {
+            robotCPlanStr = "";
+
+         }
+
+         else
+        {
+            switch(robotCPlan)
+            {
+            case 0: robotCPlanStr = "Basic Plan";
+            break;
+
+            case 1: robotCPlanStr = "Basic Plus Plan";
+            break;
+
+            case 2: robotCPlanStr = "Premium Plan";
+            break;
+
+            }
+
+         }
+
+            QSqlQuery queryIndex;
+            int index=0;
+            queryIndex.exec("SELECT orderID FROM orders");
+            while (queryIndex.next()) {
+
+                index++;
+                qDebug() <<"index: " << index;
+            }
+
+            qDebug() << "index TESTING: " << index;
+
+
+
+            QSqlQuery query;
+            query.prepare("INSERT INTO orders(orderID,companyName,robotAQty,robotBQty, robotCQty, robotAPlan,robotBPlan,robotCPlan,"
+                          "robotASub,robotBSub,robotCSub, subtotal,shipping,salesTax,totalPrice) "
+                          "VALUES (:orderID,:ccName,:robotAQty,:robotBQty, :robotCQty, :robotAPlanStr,:robotBPlanStr,:robotCPlanStr,"
+                          ":robotASubtotal,:robotBSubtotal,:robotCSubtotal,:subtotal,:shipping,:salesTax,:totalPrice)");
+
+            QString IDPreFix;
+
+           if (index<=10)
+           {
+                IDPreFix = "0-000";
+           }
+           else if(index<=100)
+           {
+                IDPreFix = "0-00";
+           }
+           else if (index<=1000)
+           {
+               IDPreFix = "0-0";
+           }
+           else
+           {
+               IDPreFix = "0-";
+           }
+
+           orderID = IDPreFix + (QString::number(++index));
+
+            query.bindValue(0,orderID);
+            query.bindValue(1,ccName);
+            query.bindValue(2,robotAQty);
+            query.bindValue(3,robotBQty);
+            query.bindValue(4,robotCQty);
+            query.bindValue(5,robotAPlanStr);
+            query.bindValue(6,robotBPlanStr);
+            query.bindValue(7,robotCPlanStr);
+            query.bindValue(8,robotASubtotal);
+            query.bindValue(9,robotBSubtotal);
+            query.bindValue(10,robotCSubtotal);
+            query.bindValue(11,subtotal);
+            query.bindValue(12,shipping);
+            query.bindValue(13,salesTax);
+            query.bindValue(14,totalPrice);
+
+            if(query.exec())
+                    qDebug() <<("added");
+            else
+            {
+               qDebug() << ("add failed");
+            }
+
+            // Shows value of variables that need to be saved to file eventually
+            qDebug() << "Number of Robot A: " << robotAQty;
+            qDebug() << "Robot A plan index #: " << robotAPlan;
+            qDebug() << "Number of Robot B: " << robotBQty;
+            qDebug() << "Robot B plan index #: " << robotBPlan;
+            qDebug() << "Number of Robot C: " << robotCQty;
+            qDebug() << "Robot C plan index #: " << robotCPlan;
+            qDebug() << "Total Order Price: $ " << totalPrice;
+
+
+            // Open and display order confirmation message box
+            QMessageBox::information(this, "Order Confirmation",
+                                     "Thank you for your order.",QMessageBox::Ok);
+            // Accept the dialog
+            accept();
+        }
+        else
+        {
+
+            QMessageBox::information(this, "Error","Company Name not found!",QMessageBox::Ok);
+            //reject();
+
+        }
+
+        closeDatabase();
+
+    }
+
+
+
+
 }
 
 /****************************************************************************
@@ -897,3 +1100,24 @@ void OrderWindow::on_cvvLine_editingFinished()
         ui->cvvLine->setText("");
     }
 }
+
+bool OrderWindow::connectToCustomerList(){
+    database = QSqlDatabase::addDatabase("QSQLITE");
+    database.setDatabaseName("customerList.db");
+
+    if(!database.open()){
+        qDebug() << ("Database did not open");
+        return false;
+    }
+
+    qDebug() << ("Database opened");
+    return true;
+}
+
+void OrderWindow::closeDatabase(){
+    database.close();
+    database.removeDatabase(QSqlDatabase::defaultConnection);
+    qDebug() << ("Closed");
+
+}
+

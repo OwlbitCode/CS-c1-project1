@@ -5,6 +5,7 @@
 #include "productWindow.h"
 #include <QWidget>
 #include <QDebug>
+//#include<QString>
 //#include <Qsql>
 
 using namespace std;
@@ -459,15 +460,22 @@ void MainWindow::on_viewOrdersAdminButton_clicked()
 
         qry->prepare("select orderID, companyName, totalPrice from orders");
 
+
         qry->exec();
         modal->setQuery(*qry);
         ui->ovTable->setModel(modal);
 
         qDebug() << (modal->rowCount());
 
+        ui->ovTable->setColumnWidth(0,100);
+        ui->ovTable->setColumnWidth(1,300);
+        ui->ovTable->setColumnWidth(2,150);
+
         QSqlQueryModel * combo = new QSqlQueryModel();
 
-        qry->prepare("select companyName from orders");
+        qry->prepare("SELECT DISTINCT companyName FROM orders ORDER BY companyName COLLATE NOCASE ASC");
+
+
         qry->exec();
 
         combo->setQuery(*qry);
@@ -493,6 +501,10 @@ void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
     {
         while(qry.next())
         {
+            double salesTax, totalPrice;
+            salesTax = qry.value(13).toDouble();
+            totalPrice = qry.value(14).toDouble();
+
             ui->ovOrderID->setText(qry.value(0).toString());
             ui->ovRobotAQty->setText(qry.value(2).toString());
             ui->ovRobotBQty->setText(qry.value(3).toString());
@@ -505,8 +517,11 @@ void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
             ui->ovRobotCSub->setText(qry.value(10).toString());
             ui->ovSubtotal->setText(qry.value(11).toString());
             ui->ovShipping->setText(qry.value(12).toString());
-            ui->ovSalesTax->setText(qry.value(13).toString());
-            ui->ovTotalPrice->setText(qry.value(14).toString());
+           // ui->ovSalesTax->setText(qry.value(13).toString());
+           // ui->ovTotalPrice->setText(qry.value(14).toString());
+            ui->ovSalesTax->setText(QString::number(salesTax,'f',2));
+            ui->ovTotalPrice->setText(QString::number(totalPrice,'f',2));
+
         }
     }else{
         qDebug() << ("dun broke");
@@ -528,3 +543,46 @@ void MainWindow::viewReviews(){
 }
 
 
+
+
+void MainWindow::on_ovSortByNameButton_clicked()
+{
+    qDebug() << "Testing sort";
+    QSqlQueryModel * modal = new QSqlQueryModel();
+
+    QSqlQuery * qry = new QSqlQuery(database);
+
+    qry->prepare("SELECT orderID, companyName, totalPrice FROM orders ORDER BY companyName COLLATE NOCASE ASC");
+
+    qry->exec();
+    modal->setQuery(*qry);
+    ui->ovTable->setModel(modal);
+
+    qDebug() << (modal->rowCount());
+
+    ui->ovTable->setColumnWidth(0,100);
+    ui->ovTable->setColumnWidth(1,300);
+    ui->ovTable->setColumnWidth(2,150);
+
+}
+
+void MainWindow::on_ovSortByOrderIDButton_clicked()
+{
+    qDebug() << "Testing sort  by ID";
+
+    QSqlQueryModel * modal = new QSqlQueryModel();
+
+    QSqlQuery * qry = new QSqlQuery(database);
+
+    qry->prepare("SELECT orderID, companyName, totalPrice FROM orders ORDER BY orderID COLLATE NOCASE ASC");
+
+    qry->exec();
+    modal->setQuery(*qry);
+    ui->ovTable->setModel(modal);
+
+    qDebug() << (modal->rowCount());
+
+    ui->ovTable->setColumnWidth(0,100);
+    ui->ovTable->setColumnWidth(1,300);
+    ui->ovTable->setColumnWidth(2,150);
+}

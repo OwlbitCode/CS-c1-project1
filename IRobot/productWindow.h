@@ -65,38 +65,46 @@ class ProductWindow : public QWidget
     Q_OBJECT
 
 public:
-    //! Constructor
     explicit ProductWindow(QWidget *parent = nullptr);
-    //! Destructor
+    //!< Constructor
+
     ~ProductWindow();
+    //!< Destructor
 
-    //! Gets the price for Robot A
-    /*! POST: return robotAPrice; */
     double getRobotAPrice() const;
-    //! Gets the price for Robot B
-    /*! POST: return robotBPrice; */
-    double getPlanAPrice() const;
-    //! Gets the price for Robot C
-    /*! POST: return robotCPrice; */
-    double getRobotBPrice() const;
+    //!< Gets the price for Robot A
+    /*!< POST: return robotAPrice; */
 
-    //! Gets the price for Plan A
-    /*! POST: return planAPrice; */
+    double getPlanAPrice() const;
+    //!< Gets the price for Robot B
+    /*!< POST: return robotBPrice; */
+
+    double getRobotBPrice() const;
+    //!< Gets the price for Robot C
+    /*!< POST: return robotCPrice; */
+
     double getPlanBPrice() const;
-    //! Gets the price for Plan B
-    /*! POST: return planBPrice; */
+    //!< Gets the price for Plan A
+    /*!< POST: return planAPrice; */
+
     double getRobotCPrice() const;
-    //! Gets the price for Plan C
-    /*! POST: return planCPrice; */
+    //!< Gets the price for Plan B
+    /*!< POST: return planBPrice; */
+
     double getPlanCPrice() const;
+    //!< Gets the price for Plan C
+    /*!< POST: return planCPrice; */
 
 private slots:
-    //! Creates and opens a new OrderWindow dialog when button is clicked
+
     void on_robotAPushButton_clicked();
-    //! Creates and opens a new OrderWindow dialog when button is clicked
+    //!< Creates and opens a new OrderWindow dialog when button is clicked
+
     void on_robotBPushButton_clicked();
-    //! Creates and opens a new OrderWindow dialog when button is clicked
+    //!< Creates and opens a new OrderWindow dialog when button is clicked
+
     void on_robotCPushButton_clicked();
+    //!< Creates and opens a new OrderWindow dialog when button is clicked
 
 private:    
     Ui::Widget *ui;

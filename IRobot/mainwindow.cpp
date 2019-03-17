@@ -47,6 +47,17 @@ void MainWindow::logout(){
     ui->stackedWidget->setCurrentIndex(0);
 }
 
+/****************************************************************************
+ * METHOD - viewProducts
+ * --------------------------------------------------------------------------
+ * This method ...
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ ***************************************************************************/
 void MainWindow::viewProducts(){
     qDebug() << "view pressed";
     products = new ProductWindow;
@@ -291,8 +302,6 @@ void MainWindow::deleteCustomer(){
  *      ==> Returns nothing.
  *      ==> Makes the log in screen active.
  ***************************************************************************/
-
-
 void MainWindow::on_RPMainRequestPamphletButton_clicked()
 
 {
@@ -320,11 +329,8 @@ void MainWindow::on_RPMainRequestPamphletButton_clicked()
  *          in variables to be used in the database.
  *      ==> Makes the log in screen active.
  ***************************************************************************/
-
-
 void MainWindow::on_RPSubmitButton_clicked()
 {
-
     companyNameVar= ui->RPCompanyNamelineEdit->text();
     qDebug() << "Testing companyNameVar value" << companyNameVar;
 
@@ -338,7 +344,6 @@ void MainWindow::on_RPSubmitButton_clicked()
 
     switch(PRreasonVar)
     {
-
         case 0: PRreasonVar2 = "";
         break;
         case 1: PRreasonVar2 = "very interested";
@@ -349,11 +354,9 @@ void MainWindow::on_RPSubmitButton_clicked()
         break;
         case 4: PRreasonVar2 = "never call again";
         break;
-
     }
 
         qDebug() << "Testing customer interest choice" << PRreasonVar2;
-
 
     if (companyNameVar == "" || address1Var == "" || address2Var == "" || PRreasonVar2 == "")
     {
@@ -362,7 +365,6 @@ void MainWindow::on_RPSubmitButton_clicked()
 
     else
     {
-
        //need to store into the data base
 
        ui->RPCompanyNamelineEdit->clear();
@@ -378,8 +380,10 @@ void MainWindow::on_RPSubmitButton_clicked()
     }
 }
 
+void MainWindow::viewReviews(){
+    ui->stackedWidget->setCurrentIndex(7);
+}
 
-// Added Main Window Button for Concept of Operations - js
 /****************************************************************************
  * METHOD - on_opButton_clicked
  * --------------------------------------------------------------------------
@@ -398,7 +402,6 @@ void MainWindow::on_opButton_clicked()
     ui->stackedWidget->setCurrentIndex(3);
 }
 
-// Added Return to Main Window Button on Concept of Operations Windows - js
 /****************************************************************************
  * METHOD - on_opReturnMainButton_clicked
  * --------------------------------------------------------------------------
@@ -437,10 +440,17 @@ void MainWindow::closeDatabase(){
 
 }
 
-
-/*********************
+/****************************************************************************
+ * METHOD - on_viewOrdersAdminButton_clicked
+ * --------------------------------------------------------------------------
+ * This method ...
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
  *
- ***********************/
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ ***************************************************************************/
 void MainWindow::on_viewOrdersAdminButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(6);
@@ -450,7 +460,6 @@ void MainWindow::on_viewOrdersAdminButton_clicked()
     {
         ui->stackedWidget->setCurrentIndex(2);
         closeDatabase();
-
     }
     else
     {
@@ -458,8 +467,8 @@ void MainWindow::on_viewOrdersAdminButton_clicked()
 
         QSqlQuery * qry = new QSqlQuery(database);
 
-        qry->prepare("select orderID, companyName, totalPrice from orders");
-
+        qry->prepare("SELECT orderID, companyName, totalPrice "
+                     "FROM orders");
 
         qry->exec();
         modal->setQuery(*qry);
@@ -467,27 +476,71 @@ void MainWindow::on_viewOrdersAdminButton_clicked()
 
         qDebug() << (modal->rowCount());
 
+        // Set Table Column Width
         ui->ovTable->setColumnWidth(0,100);
         ui->ovTable->setColumnWidth(1,300);
         ui->ovTable->setColumnWidth(2,150);
 
+        // Set Table Column Header Text
+        modal->setHeaderData(0, Qt::Horizontal, QObject::tr("Order ID"));
+        modal->setHeaderData(1, Qt::Horizontal, QObject::tr("Company Name"));
+        modal->setHeaderData(2, Qt::Horizontal, QObject::tr("Total Price"));
+
         QSqlQueryModel * combo = new QSqlQueryModel();
 
-        qry->prepare("SELECT DISTINCT companyName FROM orders ORDER BY companyName COLLATE NOCASE ASC");
-
+        qry->prepare("SELECT DISTINCT companyName "
+                     "FROM orders ORDER BY companyName COLLATE NOCASE ASC");
 
         qry->exec();
 
         combo->setQuery(*qry);
 
         ui->ovCompanyNameCombo->setModel(combo);
+
+        /************************************************************
+         * PROCESSING - Update IDCombo box with orders for selected
+         *              Company name
+         ************************************************************/
+        // Create new model for order ID Combo Box
+        QSqlQueryModel * IDCombo = new QSqlQueryModel();
+
+        // Get current company name selected in Company combo box
+        QString name = (ui->ovCompanyNameCombo->currentText());
+        qDebug() << "Name is: " << name;
+
+        // Create new query for order ID Combo Box
+        QSqlQuery IDQry;
+        // Select all orderID for the Company name selected in the
+        // Company combo box and put in ascending order
+        IDQry.prepare("SELECT orderID "
+                      "FROM orders "
+                      "WHERE companyName='"+name+"' "
+                      "ORDER BY orderID COLLATE NOCASE ASC");
+        IDQry.exec();
+        IDCombo->setQuery(IDQry);
+
+        // Display all orders for Company name selected
+        ui->ovOrderIDCombo->setModel(IDCombo);
     }
 }
 
+/****************************************************************************
+ * METHOD - on_ovCompanyNameCombo_currentIndexChanged
+ * --------------------------------------------------------------------------
+ * This method ...
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ ***************************************************************************/
 void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
 {
     QString name = ui->ovCompanyNameCombo->currentText();
+
     qDebug() << name;
+
     QString orderID, companyName, robotAQty, robotBQty,
             robotCQty, robotAPlan, robotBPlan, robotCPlan,
             robotASub, robotBSub, robotCSub, subtotal,
@@ -502,10 +555,42 @@ void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
         while(qry.next())
         {
             double salesTax, totalPrice;
+
+            /************************************************************
+             * PROCESSING - Update IDCombo box with orders for selected
+             *              Company name
+             ************************************************************/
+            // Create new model for order ID Combo Box
+            QSqlQueryModel * IDCombo = new QSqlQueryModel();
+
+            // Get current company name selected in Company combo box
+            QString name = (ui->ovCompanyNameCombo->currentText());
+            qDebug() << "Name is: " << name;
+
+            // Create new query for order ID Combo Box
+            QSqlQuery IDQry;
+            // Select all orderID for the Company name selected in the
+            // Company combo box and put in ascending order
+            IDQry.prepare("SELECT orderID "
+                          "FROM orders "
+                          "WHERE companyName='"+name+"' "
+                          "ORDER BY orderID COLLATE NOCASE ASC");
+            IDQry.exec();
+            IDCombo->setQuery(IDQry);
+
+            // Display all orders for Company name selected
+            ui->ovOrderIDCombo->setModel(IDCombo);
+
+            /************************************************************
+             * PROCESSING - Update all text boxes with data from
+             *              the order database for selected orderID
+             ************************************************************/
+// INCOMPLETE
+// NEED TO BE ABLE TO POPULATE TEXTBOXES WITH SELECTED ORDERID
+
             salesTax = qry.value(13).toDouble();
             totalPrice = qry.value(14).toDouble();
 
-            ui->ovOrderID->setText(qry.value(0).toString());
             ui->ovRobotAQty->setText(qry.value(2).toString());
             ui->ovRobotBQty->setText(qry.value(3).toString());
             ui->ovRobotCQty->setText(qry.value(4).toString());
@@ -521,51 +606,24 @@ void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
            // ui->ovTotalPrice->setText(qry.value(14).toString());
             ui->ovSalesTax->setText(QString::number(salesTax,'f',2));
             ui->ovTotalPrice->setText(QString::number(totalPrice,'f',2));
-
         }
-    }else{
+    }else
+    {
         qDebug() << ("dun broke");
     }
 }
 
-
-
-void MainWindow::on_ovReturnButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(2);
-    if(database.open()){
-        closeDatabase();
-    }
-}
-
-void MainWindow::viewReviews(){
-    ui->stackedWidget->setCurrentIndex(7);
-}
-
-
-
-
-void MainWindow::on_ovSortByNameButton_clicked()
-{
-    qDebug() << "Testing sort";
-    QSqlQueryModel * modal = new QSqlQueryModel();
-
-    QSqlQuery * qry = new QSqlQuery(database);
-
-    qry->prepare("SELECT orderID, companyName, totalPrice FROM orders ORDER BY companyName COLLATE NOCASE ASC");
-
-    qry->exec();
-    modal->setQuery(*qry);
-    ui->ovTable->setModel(modal);
-
-    qDebug() << (modal->rowCount());
-
-    ui->ovTable->setColumnWidth(0,100);
-    ui->ovTable->setColumnWidth(1,300);
-    ui->ovTable->setColumnWidth(2,150);
-
-}
-
+/****************************************************************************
+ * METHOD - on_ovSortByOrderIDButton_clicked
+ * --------------------------------------------------------------------------
+ * This method ...
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ ***************************************************************************/
 void MainWindow::on_ovSortByOrderIDButton_clicked()
 {
     qDebug() << "Testing sort  by ID";
@@ -574,7 +632,8 @@ void MainWindow::on_ovSortByOrderIDButton_clicked()
 
     QSqlQuery * qry = new QSqlQuery(database);
 
-    qry->prepare("SELECT orderID, companyName, totalPrice FROM orders ORDER BY orderID COLLATE NOCASE ASC");
+    qry->prepare("SELECT orderID, companyName, totalPrice "
+                 "FROM orders ORDER BY orderID COLLATE NOCASE ASC");
 
     qry->exec();
     modal->setQuery(*qry);
@@ -582,7 +641,72 @@ void MainWindow::on_ovSortByOrderIDButton_clicked()
 
     qDebug() << (modal->rowCount());
 
+    // Set Table Column Width
     ui->ovTable->setColumnWidth(0,100);
     ui->ovTable->setColumnWidth(1,300);
     ui->ovTable->setColumnWidth(2,150);
+
+    // Set Table Column Header Text
+    modal->setHeaderData(0, Qt::Horizontal, QObject::tr("Order ID"));
+    modal->setHeaderData(1, Qt::Horizontal, QObject::tr("Company Name"));
+    modal->setHeaderData(2, Qt::Horizontal, QObject::tr("Total Price"));
+}
+
+/****************************************************************************
+ * METHOD - on_ovSortByNameButton_clicked
+ * --------------------------------------------------------------------------
+ * This method ...
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ ***************************************************************************/
+void MainWindow::on_ovSortByNameButton_clicked()
+{
+    qDebug() << "Testing sort";
+    QSqlQueryModel * modal = new QSqlQueryModel();
+
+    QSqlQuery * qry = new QSqlQuery(database);
+
+    qry->prepare("SELECT orderID, companyName, totalPrice "
+                 "FROM orders ORDER BY companyName COLLATE NOCASE ASC");
+
+    qry->exec();
+    modal->setQuery(*qry);
+    ui->ovTable->setModel(modal);
+
+    qDebug() << (modal->rowCount());
+
+    // Set Table Column Width
+    ui->ovTable->setColumnWidth(0,100);
+    ui->ovTable->setColumnWidth(1,300);
+    ui->ovTable->setColumnWidth(2,150);
+
+    // Set Table Column Header Text
+    modal->setHeaderData(0, Qt::Horizontal, QObject::tr("Order ID"));
+    modal->setHeaderData(1, Qt::Horizontal, QObject::tr("Company Name"));
+    modal->setHeaderData(2, Qt::Horizontal, QObject::tr("Total Price"));
+}
+
+/****************************************************************************
+ * METHOD - on_ovReturnButton_clicked
+ * --------------------------------------------------------------------------
+ * This method ...
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ ***************************************************************************/
+void MainWindow::on_ovReturnButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+
+    if(database.open())
+    {
+        closeDatabase();
+    }
 }

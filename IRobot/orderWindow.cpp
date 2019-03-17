@@ -29,6 +29,7 @@
  *          PLAN_B_PRICE  : price of maintenance plan B
  *          PLAN_C_NAME   : name of maintenance plan C
  *          PLAN_C_PRICE  : price of maintenance plan C
+ *          SHIPPING      : shipping and handling amount
  *          TAX_RATE      : sales tax rate (example: 0.075)
  *
  * POST-CONDITIONS
@@ -400,6 +401,21 @@ void OrderWindow::setOrderSubtotal()
     setOrderTotalPrice();
 }
 
+/****************************************************************************
+ * METHOD - setOrderShipping
+ * --------------------------------------------------------------------------
+ * This method updates the order shipping in the dialog window.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following constant variables must be declared and initialized
+ *      in the productWindow.h.
+ *          SHIPPING : constant value for shipping & handling charges
+ *                     used for calculating total price
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Updates display for shipping price.
+ ***************************************************************************/
 void OrderWindow::setOrderShipping()
 {
     /************************************************************
@@ -419,6 +435,19 @@ void OrderWindow::setOrderShipping()
     }
 }
 
+/****************************************************************************
+ * METHOD - setOrderSalesTax
+ * --------------------------------------------------------------------------
+ * This method calculates and updates the order's sales tax in the dialog
+ * window.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Updates display for order sales tax.
+ ***************************************************************************/
 void OrderWindow::setOrderSalesTax()
 {
     /************************************************************
@@ -439,6 +468,19 @@ void OrderWindow::setOrderSalesTax()
     }
 }
 
+/****************************************************************************
+ * METHOD - setOrderTotalPrice
+ * --------------------------------------------------------------------------
+ * This method calculates and updates the order's total price in the dialog
+ * window.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Updates display for order's total price.
+ ***************************************************************************/
 void OrderWindow::setOrderTotalPrice()
 {
     /************************************************************
@@ -463,8 +505,14 @@ void OrderWindow::setOrderTotalPrice()
  * METHOD - on_placeOrderButton_clicked
  * --------------------------------------------------------------------------
  * This method is activated when the "Place Order" button is clicked.  It
- * opens a QMessageBox confirming the order.  When the message box is
- * closed, the orderWindow dialog is closed and the productWindow is active.
+ * first checks to make sure the ccName matches the Company field in the
+ * customers database table.  If there is no match, then the process for
+ * saving the order stops.  If there is a match, then the member variables
+ * that require conversion are done.  After conversions are made, the
+ * input values from the form are stored into the 'orders' database table.
+ * The QMessageBox opens to confirm the order was saved.  When the message
+ * box is closed, the orderWindow dialog is closed and the productWindow is
+ * active.
  * --------------------------------------------------------------------------
  * PRE-CONDITIONS
  *      No parameters are required.
@@ -475,65 +523,94 @@ void OrderWindow::setOrderTotalPrice()
  ***************************************************************************/
 void OrderWindow::on_placeOrderButton_clicked()
 {
+    int index = 0; // CALC - used to store the index of last value in
+                   //        orders database table so the order id
+                   //        can be created
 
+    QString IDPreFix; // CALC&OUT - created OrderID with Os and formatting.
+
+    // Connect to sqlite database CustomerList.db
     connectToCustomerList();
 
+    /************************************************************
+     * PROCESSING - If database fails to open, display message
+     *              box to customer to contact us for help.
+     *              Else, continue with the process of preparing
+     *              to store entered data into database.
+     ************************************************************/
+    // Database fails to open
     if(!database.open())
     {
+        QMessageBox::information(this, "Error",
+            "Unable to take order at this time, please contact us!",
+            QMessageBox::Ok);
 
-    QMessageBox::information(this, "Error",
-                                 "Unable to take order at this time, please contact us!",QMessageBox::Ok);
-    reject();
-
+        reject();
     }
-
+    // Database opens successfully
     else
-
     {
-
-        shipping = SHIPPING;
+        bool isFound = false; // CALC - if ccName (in 'orders' database)
+                              //        matches a Company (in 'customers'
+                              //        database)
 
         QString robotAPlanStr,robotBPlanStr,robotCPlanStr;
+                // CALC&OUT - Converted string value for robot plans
 
+//        shipping = SHIPPING;
+//check here
 
-
-        qDebug() << "AAAAAAAAAAAAAAAABEFORE Q";
+        // Create queryName object for query on company names in the
+        // 'customer' database table
         QSqlQuery queryName;
-        bool isFound = false;
 
+        // Prepare query by selecting the company names from the 'customers'
+        // database table
         queryName.prepare("SELECT Company FROM customers");
 
+        /************************************************************
+         * PROCESSING - Check each record in customers database
+         *              for Company == ccName (which is in orders
+         *              database)
+         *              If ccName does not match a Company name then
+         *              the order can't be accepted.  A customer's
+         *              Company must exist in the customers database
+         *              to be able to place an Order.
+         ************************************************************/
         if(queryName.exec())
         {
             qDebug() << "Inside queryName.exec";
 
-            while (queryName.next())
+            // Go through entire database looking for the ccName match
+            while(queryName.next())
             {
-                if (queryName.value(0)==ccName)
+                // Check if there is a match
+                if(queryName.value(0) == ccName)
                 {
-                qDebug() << "Name found!";
-                isFound = true;
-
+                    qDebug() << "Name found!";
+                    isFound = true;
                 }
             }
-
          }
 
-        qDebug() << "BBBBBBBBBBBBBBBBBBBBBBBafter while";
-
+        /************************************************************
+         * PROCESSING - If the ccName match is found in the customers
+         *              database, then continue with the saving order
+         *              process.
+         ************************************************************/
         if(isFound)
         {
-
-            qDebug()<<"robotAQty: " << robotAQty;
-
+            // If no robotA is ordered, display blank string for the
+            // selected plan.
             if(robotAQty<1)
             {
                 robotAPlanStr = "";
-
             }
+            // If at least one is being ordered, then use the robotAPlan
+            // value to convert to a string to be displayed.
             else
             {
-
+                // Select proper string
                 switch(robotAPlan)
                 {
                     case 0: robotAPlanStr = "Basic Plan";
@@ -544,101 +621,111 @@ void OrderWindow::on_placeOrderButton_clicked()
 
                     case 2: robotAPlanStr = "Premium Plan";
                     break;
-
                  }
              }
 
-            qDebug()<<"robotBQty: " << robotBQty;
-
-         if(robotBQty<1)
-         {
-            robotBPlanStr = "";
-
-         }
-
-         else
-        {
-
-            switch(robotBPlan)
+            // If no robotB is ordered, display blank string for the
+            // selected plan.
+            if(robotBQty<1)
             {
-            case 0: robotBPlanStr = "Basic Plan";
-            break;
+                robotBPlanStr = "";
+            }
+            // If at least one is being ordered, then use the robotBPlan
+            // value to convert to a string to be displayed.
+            else
+            {
+                // Select proper string
+                switch(robotBPlan)
+                {
+                    case 0: robotBPlanStr = "Basic Plan";
+                    break;
 
-            case 1: robotBPlanStr = "Basic Plus Plan";
-            break;
+                    case 1: robotBPlanStr = "Basic Plus Plan";
+                    break;
 
-            case 2: robotBPlanStr = "Premium Plan";
-            break;
-
+                    case 2: robotBPlanStr = "Premium Plan";
+                    break;
+                }
             }
 
-         }
-
-        qDebug()<<"robotCQty: " << robotCQty;
-
-        if(robotCQty<1)
-         {
-            robotCPlanStr = "";
-
-         }
-
-         else
-        {
-            switch(robotCPlan)
+            // If no robotC is ordered, display blank string for the
+            // selected plan.
+            if(robotCQty<1)
             {
-            case 0: robotCPlanStr = "Basic Plan";
-            break;
+                robotCPlanStr = "";
+            }
+            // If at least one is being ordered, then use the robotCPlan
+            // value to convert to a string to be displayed.
+            else
+            {
+                // Select proper string
+                switch(robotCPlan)
+                {
+                case 0: robotCPlanStr = "Basic Plan";
+                break;
 
-            case 1: robotCPlanStr = "Basic Plus Plan";
-            break;
+                case 1: robotCPlanStr = "Basic Plus Plan";
+                break;
 
-            case 2: robotCPlanStr = "Premium Plan";
-            break;
-
+                case 2: robotCPlanStr = "Premium Plan";
+                break;
+                }
             }
 
-         }
-
+            // Create queryIndex object for query on order id in the
+            // 'orders' database table to find the last entry index
+            // so we can determine the order id for the new order.
             QSqlQuery queryIndex;
-            int index=0;
-            queryIndex.exec("SELECT orderID FROM orders");
-            while (queryIndex.next()) {
 
+            // Query the orderID from the 'orders' database table
+            queryIndex.exec("SELECT orderID FROM orders");
+
+            // Locate last index in orders database table
+            while (queryIndex.next())
+            {
                 index++;
-                qDebug() <<"index: " << index;
+                qDebug() << "index: " << index;
             }
 
             qDebug() << "index TESTING: " << index;
 
-
-
+            // Create queryIndex object for query on order id in the
+            // 'orders' database table to find the last entry index
+            // so we can determine the order id for the new order.
             QSqlQuery query;
-            query.prepare("INSERT INTO orders(orderID,companyName,robotAQty,robotBQty, robotCQty, robotAPlan,robotBPlan,robotCPlan,"
-                          "robotASub,robotBSub,robotCSub, subtotal,shipping,salesTax,totalPrice) "
-                          "VALUES (:orderID,:ccName,:robotAQty,:robotBQty, :robotCQty, :robotAPlanStr,:robotBPlanStr,:robotCPlanStr,"
-                          ":robotASubtotal,:robotBSubtotal,:robotCSubtotal,:subtotal,:shipping,:salesTax,:totalPrice)");
+            query.prepare("INSERT INTO orders(orderID, companyName,"
+                          "robotAQty, robotBQty, robotCQty,"
+                          "robotAPlan, robotBPlan, robotCPlan,"
+                          "robotASub, robotBSub, robotCSub,"
+                          "subtotal, shipping, salesTax, totalPrice) "
+                          "VALUES (:orderID, :ccName,"
+                          ":robotAQty,:robotBQty, :robotCQty,"
+                          ":robotAPlanStr,:robotBPlanStr,:robotCPlanStr,"
+                          ":robotASubtotal,:robotBSubtotal,:robotCSubtotal,"
+                          ":subtotal,:shipping,:salesTax,:totalPrice)");
 
-            QString IDPreFix;
-
-           if (index<=10)
-           {
+            // Format the orderID with padded 0s as needed
+            if (index<=10)
+            {
                 IDPreFix = "0-000";
-           }
-           else if(index<=100)
-           {
+            }
+            else if(index<=100)
+            {
                 IDPreFix = "0-00";
-           }
-           else if (index<=1000)
-           {
-               IDPreFix = "0-0";
-           }
-           else
-           {
-               IDPreFix = "0-";
-           }
+            }
+            else if (index<=1000)
+            {
+                IDPreFix = "0-0";
+            }
+            else
+            {
+                IDPreFix = "0-";
+            }
 
-           orderID = IDPreFix + (QString::number(++index));
+            // Store the new formatted orderID value as a string
+            orderID = IDPreFix + (QString::number(++index));
 
+            // Save input values from the form into the orders database
             query.bindValue(0,orderID);
             query.bindValue(1,ccName);
             query.bindValue(2,robotAQty);
@@ -651,48 +738,47 @@ void OrderWindow::on_placeOrderButton_clicked()
             query.bindValue(9,robotBSubtotal);
             query.bindValue(10,robotCSubtotal);
             query.bindValue(11,subtotal);
-            query.bindValue(12,shipping);
+            query.bindValue(12,SHIPPING);
             query.bindValue(13,salesTax);
             query.bindValue(14,totalPrice);
 
+            // qDebug to for programmer to verify values were saved
             if(query.exec())
-                    qDebug() <<("added");
+            {
+                qDebug() << ("added");
+            }
             else
             {
-               qDebug() << ("add failed");
+                qDebug() << ("add failed");
             }
 
-            // Shows value of variables that need to be saved to file eventually
-            qDebug() << "Number of Robot A: " << robotAQty;
+            // Shows value of variables that were saved
+            qDebug() << "Number of Robot A: "    << robotAQty;
             qDebug() << "Robot A plan index #: " << robotAPlan;
-            qDebug() << "Number of Robot B: " << robotBQty;
+            qDebug() << "Number of Robot B: "    << robotBQty;
             qDebug() << "Robot B plan index #: " << robotBPlan;
-            qDebug() << "Number of Robot C: " << robotCQty;
+            qDebug() << "Number of Robot C: "    << robotCQty;
             qDebug() << "Robot C plan index #: " << robotCPlan;
-            qDebug() << "Total Order Price: $ " << totalPrice;
-
+            qDebug() << "Total Order Price: $ "  << totalPrice;
 
             // Open and display order confirmation message box
             QMessageBox::information(this, "Order Confirmation",
-                                     "Thank you for your order.",QMessageBox::Ok);
+                "Thank you for your order.", QMessageBox::Ok);
+
             // Accept the dialog
             accept();
         }
+        // Message box if ccName does not match a Company in the 'customers'
+        // database table
         else
         {
-
-            QMessageBox::information(this, "Error","Company Name not found!",QMessageBox::Ok);
-            //reject();
-
+            QMessageBox::information(this, "Error",
+                "Company Name not found!", QMessageBox::Ok);
         }
 
+        // Close database file
         closeDatabase();
-
     }
-
-
-
-
 }
 
 /****************************************************************************
@@ -1101,23 +1187,55 @@ void OrderWindow::on_cvvLine_editingFinished()
     }
 }
 
-bool OrderWindow::connectToCustomerList(){
+/****************************************************************************
+ * METHOD - connectToCustomerList
+ * --------------------------------------------------------------------------
+ * This method connects to the CustomerList.db (an sqlite database that has
+ * two tables: customers and orders).
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ ***************************************************************************/
+bool OrderWindow::connectToCustomerList()
+{
+    // Create database object and connect to file
     database = QSqlDatabase::addDatabase("QSQLITE");
     database.setDatabaseName("customerList.db");
 
-    if(!database.open()){
+    // Check if file opens correctly
+    if(!database.open())
+    {
         qDebug() << ("Database did not open");
         return false;
     }
 
     qDebug() << ("Database opened");
+
     return true;
 }
 
-void OrderWindow::closeDatabase(){
+/****************************************************************************
+ * METHOD - on_cvvLine_editingFinished
+ * --------------------------------------------------------------------------
+ * This method is activated when another element on the screen is selected.
+ * This method saves the credit card CVV line entered to a variable.
+ * It only saves the value if it is between 1 to 9999.  If the value
+ * entered is not within this valid range, the box clears when another
+ * element on the screen is selected.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ ***************************************************************************/
+void OrderWindow::closeDatabase()
+{
     database.close();
     database.removeDatabase(QSqlDatabase::defaultConnection);
     qDebug() << ("Closed");
-
 }
 

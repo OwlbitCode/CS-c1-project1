@@ -54,6 +54,7 @@ private:
     void closeDatabase();
 
 public slots:
+
     void adminLogin();
     
     void customerLogin();
@@ -61,6 +62,8 @@ public slots:
     void logout();
 
     void viewProducts();
+    //!< Customer Window button to view Products Window
+    /*!< Opens the Products Window (popup) */
 
     void contacts();
 
@@ -82,85 +85,43 @@ public slots:
 
     void viewReviews();
 
-
-    // Added Return to Main Window Button on Request Pamphlet Window - cl
-    /****************************************************************************
-     * METHOD - on_RPMainRequestPamphletButton_clicked
-     * --------------------------------------------------------------------------
-     * This method clears all customer input and opens the log in screen from
-     * the Request Pamphlet page "Return to Main Window" button.
-     * --------------------------------------------------------------------------
-     * PRE-CONDITIONS
-     *      No parameters are required.
-     *
-     * POST-CONDITIONS
-     *      ==> Returns nothing.
-     *      ==> Makes the log in screen active.
-     ***************************************************************************/
-
-
     void on_RPMainRequestPamphletButton_clicked();
-
-    // Added Submit Button on Request Pamphlet Window - cl
-    /****************************************************************************
-     * METHOD - on_RPSubmitButton_clicked
-     * --------------------------------------------------------------------------
-     * This method stores customer input into variables to enter into database.
-     * It then clears all customer input from line edits and opens the log in screen from
-     * the Request Pamphlet page "Return to Main Window" button.
-     * --------------------------------------------------------------------------
-     * PRE-CONDITIONS
-     *      No parameters are required.
-     *
-     * POST-CONDITIONS
-     *      ==> Stores customer input for company name, address1, address2 & interest level
-     *          in variables to be used in the database.
-     *      ==> Makes the log in screen active.
-     ***************************************************************************/
+    //!< Customer Window button to view Request Pamphlet Form
+    /*!< Opens the Request Pamplet Form Window */
 
     void on_RPSubmitButton_clicked();
-
+    //!< Request Pamphlet Form submit button action
+    /*!< Saves request pamphlet inputs to variable members */
 
 private slots:
-    // Added Main Window Button for Concept of Operations - js
-    /****************************************************************************
-     * METHOD - on_opButton_clicked
-     * --------------------------------------------------------------------------
-     * This method opens the operations (Concept of Operations) page from
-     * the "Operations" button on the customer page.
-     * --------------------------------------------------------------------------
-     * PRE-CONDITIONS
-     *      No parameters are required.
-     *
-     * POST-CONDITIONS
-     *      ==> Returns nothing.
-     *      ==> Makes the operations window active.
-     ***************************************************************************/
 
     void on_opButton_clicked();
+    //!< Customer Window button to view Concept of Operations Window
+    /*!< Opens the Operations Window */
 
-    // Added Return to Main Window Button on Concept of Operations Windows - js
-    /****************************************************************************
-     * METHOD - on_opReturnMainButton_clicked
-     * --------------------------------------------------------------------------
-     * This method opens the customer page from the operations (Concept of
-     * Operations) page "Return to Main Window" button.
-     * --------------------------------------------------------------------------
-     * PRE-CONDITIONS
-     *      No parameters are required.
-     *
-     * POST-CONDITIONS
-     *      ==> Returns nothing.
-     *      ==> Makes the customer window active.
-     ***************************************************************************/
+    void on_opReturnMainButton_clicked();
+    //!< Concept of Operations Window button to Return to Customer Window
+    /*!< Closes Concept of Operations and returns to Customer Window */
 
-     void on_opReturnMainButton_clicked();
-     void on_viewOrdersAdminButton_clicked();
-     void on_ovCompanyNameCombo_currentIndexChanged();
-     void on_ovReturnButton_clicked();
+    void on_viewOrdersAdminButton_clicked();
+    //!< Admin Window button to view Order Viewer Window
+    /*!< Opens the Order Viewer Window */
 
-     void on_ovSortByNameButton_clicked();
-     void on_ovSortByOrderIDButton_clicked();
+    void on_ovCompanyNameCombo_currentIndexChanged();
+    //!< Order Viewer Window Company Name combo box action
+    /*!< Updates order information into text boxes */
+
+    void on_ovSortByOrderIDButton_clicked();
+    //!< Order Viewer Window sort by order id button action
+    /*!< Sorts query table by order id (ascending order) */
+
+    void on_ovSortByNameButton_clicked();
+    //!< Order Viewer Window sort by name button action
+    /*!< Sorts query table by name (ascending order) */
+
+    void on_ovReturnButton_clicked();
+    //!< Order Viewer Window button to Return to Admin Window
+    /*!< Closes Order Viewer Window and returns to Admin Window */
 };
 
 #endif // MAINWINDOW_H

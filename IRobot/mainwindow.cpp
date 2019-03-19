@@ -710,3 +710,29 @@ void MainWindow::on_ovReturnButton_clicked()
         closeDatabase();
     }
 }
+
+void MainWindow::alphaSort(){
+
+}
+
+void MainWindow::key(){
+    QSqlQueryModel * modal = new QSqlQueryModel();
+
+    QSqlQuery * qry = new QSqlQuery(database);
+
+    qry->prepare("select * from customers where Value = 'key'");
+
+    qry->exec();
+    modal->setQuery(*qry);
+    ui->tableView->setModel(modal);
+
+    qDebug() << (modal->rowCount());
+    ui->tableView->setColumnWidth(0,160);
+    ui->tableView->setColumnWidth(1,260);
+    ui->tableView->setColumnWidth(2,150);
+    ui->tableView->setColumnWidth(3,60);
+}
+
+void MainWindow::breakEverything(){
+    this->close();
+}

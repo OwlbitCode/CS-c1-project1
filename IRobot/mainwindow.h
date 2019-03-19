@@ -48,6 +48,7 @@ private:
     int PRreasonVar;
     QString PRreasonVar2;
     QSqlDatabase database;
+    bool keySelected;
 
     bool helpVisable;
     bool connectToCustomerList();
@@ -84,6 +85,12 @@ public slots:
     void deleteCustomer();
 
     void viewReviews();
+
+    void alphaSort();
+
+    void key();
+
+    void breakEverything();
 
     void on_RPMainRequestPamphletButton_clicked();
     //!< Customer Window button to view Request Pamphlet Form

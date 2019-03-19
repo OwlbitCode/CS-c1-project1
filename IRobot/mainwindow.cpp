@@ -574,7 +574,7 @@ void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
             IDQry.prepare("SELECT orderID "
                           "FROM orders "
                           "WHERE companyName='"+name+"' "
-                          "ORDER BY orderID COLLATE NOCASE ASC");
+                          "ORDER BY orderID COLLATE NOCASE DESC");
             IDQry.exec();
             IDCombo->setQuery(IDQry);
 
@@ -606,6 +606,7 @@ void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
            // ui->ovTotalPrice->setText(qry.value(14).toString());
             ui->ovSalesTax->setText(QString::number(salesTax,'f',2));
             ui->ovTotalPrice->setText(QString::number(totalPrice,'f',2));
+
         }
     }else
     {
@@ -735,4 +736,91 @@ void MainWindow::key(){
 
 void MainWindow::breakEverything(){
     this->close();
+}
+
+void MainWindow::on_ovOrderIDCombo_currentIndexChanged()
+{
+
+    QString id = ui->ovOrderIDCombo->currentText();
+
+
+
+    qDebug() << id;
+
+    QString orderID, companyName, robotAQty, robotBQty,
+            robotCQty, robotAPlan, robotBPlan, robotCPlan,
+            robotASub, robotBSub, robotCSub, subtotal,
+            shipping, salesTax, totalPrice;
+
+    QSqlQuery qry;
+
+    qry.prepare("select * from orders where orderID='"+ id + "'");
+
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            double salesTax, totalPrice;
+
+
+
+            /************************************************************
+             * PROCESSING - Update IDCombo box with orders for selected
+             *              Company name
+             ************************************************************/
+            // Create new model for order ID Combo Box
+
+            /*
+            QSqlQueryModel * IDCombo = new QSqlQueryModel();
+
+            // Get current company name selected in Company combo box
+            QString name = (ui->ovCompanyNameCombo->currentText());
+            qDebug() << "Id is: " << id;
+
+            // Create new query for order ID Combo Box
+            QSqlQuery IDQry;
+            // Select all orderID for the Company name selected in the
+            // Company combo box and put in ascending order
+            IDQry.prepare("SELECT orderID "
+                          "FROM orders "
+                          "WHERE companyName='"+name+"' "
+                          "ORDER BY orderID COLLATE NOCASE ASC");
+            IDQry.exec();
+            IDCombo->setQuery(IDQry);
+
+            // Display all orders for Company name selected
+            ui->ovOrderIDCombo->setModel(IDCombo);
+*/
+
+            /************************************************************
+             * PROCESSING - Update all text boxes with data from
+             *              the order database for selected orderID
+             ************************************************************/
+// INCOMPLETE
+// NEED TO BE ABLE TO POPULATE TEXTBOXES WITH SELECTED ORDERID
+
+            salesTax = qry.value(13).toDouble();
+            totalPrice = qry.value(14).toDouble();
+
+            ui->ovRobotAQty->setText(qry.value(2).toString());
+            ui->ovRobotBQty->setText(qry.value(3).toString());
+            ui->ovRobotCQty->setText(qry.value(4).toString());
+            ui->ovRobotAPlan->setText(qry.value(5).toString());
+            ui->ovRobotBPlan->setText(qry.value(6).toString());
+            ui->ovRobotCPlan->setText(qry.value(7).toString());
+            ui->ovRobotASub->setText(qry.value(8).toString());
+            ui->ovRobotBSub->setText(qry.value(9).toString());
+            ui->ovRobotCSub->setText(qry.value(10).toString());
+            ui->ovSubtotal->setText(qry.value(11).toString());
+            ui->ovShipping->setText(qry.value(12).toString());
+           // ui->ovSalesTax->setText(qry.value(13).toString());
+           // ui->ovTotalPrice->setText(qry.value(14).toString());
+            ui->ovSalesTax->setText(QString::number(salesTax,'f',2));
+            ui->ovTotalPrice->setText(QString::number(totalPrice,'f',2));
+        }
+    }else
+    {
+        qDebug() << ("dun broke");
+    }
+
 }

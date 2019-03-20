@@ -557,9 +557,6 @@ void OrderWindow::on_placeOrderButton_clicked()
         QString robotAPlanStr,robotBPlanStr,robotCPlanStr;
                 // CALC&OUT - Converted string value for robot plans
 
-//        shipping = SHIPPING;
-//check here
-
         // Create queryName object for query on company names in the
         // 'customer' database table
         QSqlQuery queryName;
@@ -726,21 +723,23 @@ void OrderWindow::on_placeOrderButton_clicked()
             orderID = IDPreFix + (QString::number(++index));
 
             // Save input values from the form into the orders database
+            // Convert int and doubles into strings to be saved up to
+            // two decimal places
             query.bindValue(0,orderID);
             query.bindValue(1,ccName);
-            query.bindValue(2,robotAQty);
-            query.bindValue(3,robotBQty);
-            query.bindValue(4,robotCQty);
+            query.bindValue(2,QString::number(robotAQty));
+            query.bindValue(3,QString::number(robotBQty));
+            query.bindValue(4,QString::number(robotCQty));
             query.bindValue(5,robotAPlanStr);
             query.bindValue(6,robotBPlanStr);
             query.bindValue(7,robotCPlanStr);
-            query.bindValue(8,robotASubtotal);
-            query.bindValue(9,robotBSubtotal);
-            query.bindValue(10,robotCSubtotal);
-            query.bindValue(11,subtotal);
-            query.bindValue(12,SHIPPING);
-            query.bindValue(13,salesTax);
-            query.bindValue(14,totalPrice);
+            query.bindValue(8,QString::number(robotASubtotal, 'f', 2));
+            query.bindValue(9,QString::number(robotBSubtotal, 'f', 2));
+            query.bindValue(10,QString::number(robotCSubtotal, 'f', 2));
+            query.bindValue(11,QString::number(subtotal, 'f', 2));
+            query.bindValue(12,QString::number(SHIPPING, 'f', 2));
+            query.bindValue(13,QString::number(salesTax, 'f', 2));
+            query.bindValue(14,QString::number(totalPrice, 'f', 2));
 
             // qDebug to for programmer to verify values were saved
             if(query.exec())

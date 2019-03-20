@@ -106,7 +106,9 @@ private slots:
     void on_robotCPushButton_clicked();
     //!< Creates and opens a new OrderWindow dialog when button is clicked
 
-private:    
+    void on_pushButton_clicked();
+
+private:
     Ui::Widget *ui;
 };
 

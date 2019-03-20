@@ -521,7 +521,7 @@ void MainWindow::on_viewOrdersAdminButton_clicked()
         IDQry.prepare("SELECT orderID "
                       "FROM orders "
                       "WHERE companyName='"+name+"' "
-                      "ORDER BY orderID COLLATE NOCASE ASC");
+                      "ORDER BY orderID COLLATE NOCASE DESC");
         IDQry.exec();
         IDCombo->setQuery(IDQry);
 

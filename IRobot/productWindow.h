@@ -32,7 +32,7 @@ const QString PLAN_C_NAME  = "Premium Plan";
 const double  PLAN_C_PRICE = 250.00;
 
 // CONSTANT FOR SHIPPING & HANDLING CHARGES used for calculating total price
-const double SHIPPING = 100.00;
+const double SHIPPING = 99.99;
 
 // CONSTANT FOR SALES TAX RATE used for calculating total price
 const double TAX_RATE = 0.075;
@@ -106,7 +106,9 @@ private slots:
     void on_robotCPushButton_clicked();
     //!< Creates and opens a new OrderWindow dialog when button is clicked
 
-private:    
+    void on_pushButton_clicked();
+
+private:
     Ui::Widget *ui;
 };
 

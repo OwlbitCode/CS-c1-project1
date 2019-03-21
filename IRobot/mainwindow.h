@@ -11,6 +11,7 @@
 #include "productWindow.h"
 #include <QString>
 #include <QtSql>
+#include <QTextEdit>
 
 /*
 *  INPUT:
@@ -115,7 +116,7 @@ private slots:
 
     void on_ovCompanyNameCombo_currentIndexChanged();
     //!< Order Viewer Window Company Name combo box action
-    /*!< Updates order information into text boxes */
+    /*!< Updates order information into text boxes ordered by company name */
 
     void on_ovSortByOrderIDButton_clicked();
     //!< Order Viewer Window sort by order id button action
@@ -128,6 +129,11 @@ private slots:
     void on_ovReturnButton_clicked();
     //!< Order Viewer Window button to Return to Admin Window
     /*!< Closes Order Viewer Window and returns to Admin Window */
+
+    void on_ovOrderIDCombo_currentIndexChanged();
+    //!< Order Viewer Window Order ID combo box action
+    /*!< Updates order information into text boxes ordered by orderID */
+
 };
 
 #endif // MAINWINDOW_H

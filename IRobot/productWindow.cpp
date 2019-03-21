@@ -261,3 +261,8 @@ void ProductWindow::on_robotCPushButton_clicked()
     OrderWindow * orderWindow = new OrderWindow;
     orderWindow->exec();
 }
+
+void ProductWindow::on_pushButton_clicked()
+{
+    close();
+}

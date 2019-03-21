@@ -50,7 +50,8 @@ void MainWindow::logout(){
 /****************************************************************************
  * METHOD - viewProducts
  * --------------------------------------------------------------------------
- * This method ...
+ * When the Products Window button is clicked from the customer window,
+ * it opens the products window (a popup).
  * --------------------------------------------------------------------------
  * PRE-CONDITIONS
  *      No parameters are required.
@@ -396,7 +397,12 @@ void MainWindow::closeDatabase(){
 /****************************************************************************
  * METHOD - on_viewOrdersAdminButton_clicked
  * --------------------------------------------------------------------------
- * This method ...
+ * When the view order button is clicked from the admin window, the table
+ * showing the order id, company name, and total price of orders listed
+ * in the sqlite database.  The right column shows more detailed information
+ * about the order.  Admin can select a company name and then select an
+ * order that the company placed for more detailed information on that order.
+ * Admin can also sort table list by company name or order id.
  * --------------------------------------------------------------------------
  * PRE-CONDITIONS
  *      No parameters are required.
@@ -468,7 +474,7 @@ void MainWindow::on_viewOrdersAdminButton_clicked()
         IDQry.prepare("SELECT orderID "
                       "FROM orders "
                       "WHERE companyName='"+name+"' "
-                      "ORDER BY orderID COLLATE NOCASE ASC");
+                      "ORDER BY orderID COLLATE NOCASE DESC");
         IDQry.exec();
         IDCombo->setQuery(IDQry);
 
@@ -480,7 +486,10 @@ void MainWindow::on_viewOrdersAdminButton_clicked()
 /****************************************************************************
  * METHOD - on_ovCompanyNameCombo_currentIndexChanged
  * --------------------------------------------------------------------------
- * This method ...
+ * This method updates order id information in a combo box below the
+ * company name combo box when the index is changed (company name selection
+ * changes).  Order id is listed in decending order showing newest orders
+ * first.
  * --------------------------------------------------------------------------
  * PRE-CONDITIONS
  *      No parameters are required.
@@ -527,7 +536,7 @@ void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
             IDQry.prepare("SELECT orderID "
                           "FROM orders "
                           "WHERE companyName='"+name+"' "
-                          "ORDER BY orderID COLLATE NOCASE ASC");
+                          "ORDER BY orderID COLLATE NOCASE DESC");
             IDQry.exec();
             IDCombo->setQuery(IDQry);
 
@@ -538,9 +547,6 @@ void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
              * PROCESSING - Update all text boxes with data from
              *              the order database for selected orderID
              ************************************************************/
-// INCOMPLETE
-// NEED TO BE ABLE TO POPULATE TEXTBOXES WITH SELECTED ORDERID
-
             salesTax = qry.value(13).toDouble();
             totalPrice = qry.value(14).toDouble();
 
@@ -569,7 +575,7 @@ void MainWindow::on_ovCompanyNameCombo_currentIndexChanged()
 /****************************************************************************
  * METHOD - on_ovSortByOrderIDButton_clicked
  * --------------------------------------------------------------------------
- * This method ...
+ * This method sorts the table by order id in acscending order.
  * --------------------------------------------------------------------------
  * PRE-CONDITIONS
  *      No parameters are required.
@@ -608,7 +614,7 @@ void MainWindow::on_ovSortByOrderIDButton_clicked()
 /****************************************************************************
  * METHOD - on_ovSortByNameButton_clicked
  * --------------------------------------------------------------------------
- * This method ...
+ * This method sorts the table by company name in ascending order.
  * --------------------------------------------------------------------------
  * PRE-CONDITIONS
  *      No parameters are required.
@@ -646,7 +652,8 @@ void MainWindow::on_ovSortByNameButton_clicked()
 /****************************************************************************
  * METHOD - on_ovReturnButton_clicked
  * --------------------------------------------------------------------------
- * This method ...
+ * This method closes the order viewer window and takes admin back to the
+ * admin window.  It closes the database.
  * --------------------------------------------------------------------------
  * PRE-CONDITIONS
  *      No parameters are required.
@@ -664,7 +671,74 @@ void MainWindow::on_ovReturnButton_clicked()
     }
 }
 
-void MainWindow::alphaSort(){
+/****************************************************************************
+ * METHOD - on_ovOrderIDCombo_currentIndexChanged
+ * --------------------------------------------------------------------------
+ * This method updates the order detailed information on the right column
+ * when the admin selects an order id.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ ***************************************************************************/
+void MainWindow::on_ovOrderIDCombo_currentIndexChanged()
+{
+
+    QString id = ui->ovOrderIDCombo->currentText();
+
+    qDebug() << id;
+
+    QString orderID, companyName, robotAQty, robotBQty,
+            robotCQty, robotAPlan, robotBPlan, robotCPlan,
+            robotASub, robotBSub, robotCSub, subtotal,
+            shipping, salesTax, totalPrice;
+
+    QSqlQuery qry;
+
+    qry.prepare("select * from orders where orderID='"+ id + "'");
+
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            double salesTax, totalPrice;
+
+            /************************************************************
+             * PROCESSING - Update all text boxes with data from
+             *              the order database for selected orderID
+             ************************************************************/
+            salesTax = qry.value(13).toDouble();
+            totalPrice = qry.value(14).toDouble();
+
+            ui->ovRobotAQty->setText(qry.value(2).toString());
+            ui->ovRobotBQty->setText(qry.value(3).toString());
+            ui->ovRobotCQty->setText(qry.value(4).toString());
+            ui->ovRobotAPlan->setText(qry.value(5).toString());
+            ui->ovRobotBPlan->setText(qry.value(6).toString());
+            ui->ovRobotCPlan->setText(qry.value(7).toString());
+            ui->ovRobotASub->setText(qry.value(8).toString());
+            ui->ovRobotBSub->setText(qry.value(9).toString());
+            ui->ovRobotCSub->setText(qry.value(10).toString());
+            ui->ovSubtotal->setText(qry.value(11).toString());
+            ui->ovShipping->setText(qry.value(12).toString());
+           // ui->ovSalesTax->setText(qry.value(13).toString());
+           // ui->ovTotalPrice->setText(qry.value(14).toString());
+            ui->ovSalesTax->setText(QString::number(salesTax,'f',2));
+            ui->ovTotalPrice->setText(QString::number(totalPrice,'f',2));
+        }
+    }
+    else
+    {
+        qDebug() << ("dun broke");
+    }
+
+}
+
+void MainWindow::alphaSort()
+{
+
     QSqlQueryModel * modal = new QSqlQueryModel();
 
     QSqlQuery * qry = new QSqlQuery(database);

@@ -26,10 +26,10 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+    testis.cpp
 
 HEADERS += \
-        mainwindow.h
+    testis.h
 
 FORMS += \
         mainwindow.ui

@@ -39,7 +39,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background:</string>
     </property>
     <widget class="QWidget" name="Login">
      <widget class="QWidget" name="gridLayoutWidget">

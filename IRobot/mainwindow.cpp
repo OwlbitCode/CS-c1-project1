@@ -105,6 +105,8 @@ void MainWindow::populate(){
 void MainWindow::viewCustomerList(){
     ui->stackedWidget->setCurrentIndex(5);
     connectToCustomerList();
+    keySelected=false;
+    ui->keyButton->setText("Show Key");
 
     if(!database.open())
     {
@@ -113,22 +115,9 @@ void MainWindow::viewCustomerList(){
 
     }else{
 
-        QSqlQueryModel * modal = new QSqlQueryModel();
+        alphaSort();
 
         QSqlQuery * qry = new QSqlQuery(database);
-
-        qry->prepare("select * from customers");
-
-        qry->exec();
-        modal->setQuery(*qry);
-        ui->tableView->setModel(modal);
-
-        qDebug() << (modal->rowCount());
-        ui->tableView->setColumnWidth(0,160);
-        ui->tableView->setColumnWidth(1,260);
-        ui->tableView->setColumnWidth(2,150);
-        ui->tableView->setColumnWidth(3,60);
-
 
         QSqlQueryModel * combo = new QSqlQueryModel();
 
@@ -183,21 +172,9 @@ void MainWindow::editCustomer(){
     else
         qDebug()<<("Update failed check DB");
 
-    QSqlQueryModel * modal = new QSqlQueryModel();
+    alphaSort();
 
     QSqlQuery * qry = new QSqlQuery(database);
-
-    qry->prepare("select * from customers");
-
-    qry->exec();
-    modal->setQuery(*qry);
-    ui->tableView->setModel(modal);
-    qDebug() << (modal->rowCount());
-
-    ui->tableView->setColumnWidth(0,160);
-    ui->tableView->setColumnWidth(1,260);
-    ui->tableView->setColumnWidth(2,150);
-    ui->tableView->setColumnWidth(3,60);
 
     QSqlQueryModel * combo = new QSqlQueryModel();
 
@@ -223,21 +200,9 @@ void MainWindow::addCustomer(){
     else
         qDebug()<<("add failed");
 
-    QSqlQueryModel * modal = new QSqlQueryModel();
+    alphaSort();
 
     QSqlQuery * qry = new QSqlQuery(database);
-
-    qry->prepare("select * from customers");
-
-    qry->exec();
-    modal->setQuery(*qry);
-    ui->tableView->setModel(modal);
-    qDebug() << (modal->rowCount());
-
-    ui->tableView->setColumnWidth(0,160);
-    ui->tableView->setColumnWidth(1,260);
-    ui->tableView->setColumnWidth(2,150);
-    ui->tableView->setColumnWidth(3,60);
 
     QSqlQueryModel * combo = new QSqlQueryModel();
 
@@ -262,21 +227,9 @@ void MainWindow::deleteCustomer(){
     else
         qDebug()<<("delete failed");
 
-    QSqlQueryModel * modal = new QSqlQueryModel();
+    alphaSort();
 
     QSqlQuery * qry = new QSqlQuery(database);
-
-    qry->prepare("select * from customers");
-
-    qry->exec();
-    modal->setQuery(*qry);
-    ui->tableView->setModel(modal);
-    qDebug() << (modal->rowCount());
-
-    ui->tableView->setColumnWidth(0,160);
-    ui->tableView->setColumnWidth(1,260);
-    ui->tableView->setColumnWidth(2,150);
-    ui->tableView->setColumnWidth(3,60);
 
     QSqlQueryModel * combo = new QSqlQueryModel();
 
@@ -712,15 +665,15 @@ void MainWindow::on_ovReturnButton_clicked()
 }
 
 void MainWindow::alphaSort(){
-
-}
-
-void MainWindow::key(){
     QSqlQueryModel * modal = new QSqlQueryModel();
 
     QSqlQuery * qry = new QSqlQuery(database);
 
-    qry->prepare("select * from customers where Value = 'key'");
+    if(!keySelected){
+        qry->prepare("select * from customers ORDER BY Company ASC");
+    }else{
+        qry->prepare("select * from customers where Value = 'key' ORDER BY Company ASC");
+    }
 
     qry->exec();
     modal->setQuery(*qry);
@@ -730,7 +683,21 @@ void MainWindow::key(){
     ui->tableView->setColumnWidth(0,160);
     ui->tableView->setColumnWidth(1,260);
     ui->tableView->setColumnWidth(2,150);
-    ui->tableView->setColumnWidth(3,60);
+    ui->tableView->setColumnWidth(3,70);
+
+}
+
+void MainWindow::key(){
+
+    if(keySelected){
+        keySelected=false;
+        ui->keyButton->setText("Show Key");
+    }else{
+        keySelected=true;
+        ui->keyButton->setText("Show All");
+    }
+
+    alphaSort();
 }
 
 void MainWindow::breakEverything(){

@@ -49,6 +49,7 @@ private:
     QString PRreasonVar2;
     QSqlDatabase database;
     bool keySelected;
+    void alphaSort();
 
     bool helpVisable;
     bool connectToCustomerList();
@@ -85,8 +86,6 @@ public slots:
     void deleteCustomer();
 
     void viewReviews();
-
-    void alphaSort();
 
     void key();
 

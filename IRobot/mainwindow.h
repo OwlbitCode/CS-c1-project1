@@ -11,6 +11,7 @@
 #include "productWindow.h"
 #include <QString>
 #include <QtSql>
+#include <QTextEdit>
 
 /*
 *  INPUT:

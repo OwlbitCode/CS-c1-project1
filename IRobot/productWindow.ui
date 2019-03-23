@@ -34,6 +34,9 @@
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #ccf2ff;</string>
+  </property>
   <widget class="QGroupBox" name="robotAGroupBox">
    <property name="geometry">
     <rect>
@@ -69,8 +72,14 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size : 16px;
+font-weight: bold;</string>
     </property>
     <property name="text">
      <string/>
@@ -136,6 +145,9 @@
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
     <property name="frameShadow">
      <enum>QFrame::Sunken</enum>
     </property>
@@ -169,8 +181,20 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
     </property>
     <property name="text">
      <string>Purchase iRobot</string>
@@ -224,8 +248,14 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size : 16px;
+font-weight: bold;</string>
     </property>
     <property name="text">
      <string/>
@@ -267,6 +297,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -290,8 +323,20 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
     </property>
     <property name="text">
      <string>Purchase iRobot</string>
@@ -345,8 +390,14 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size : 16px;
+font-weight: bold;</string>
     </property>
     <property name="text">
      <string/>
@@ -385,6 +436,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -408,8 +462,20 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
     </property>
     <property name="text">
      <string>Purchase iRobot</string>
@@ -493,8 +559,14 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size : 14px;
+font-weight: bold;</string>
      </property>
      <property name="text">
       <string/>
@@ -508,6 +580,9 @@ p, li { white-space: pre-wrap; }
        <width>215</width>
        <height>95</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;</string>
      </property>
      <property name="readOnly">
       <bool>true</bool>
@@ -566,8 +641,14 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size : 14px;
+font-weight: bold;</string>
      </property>
      <property name="text">
       <string/>
@@ -581,6 +662,9 @@ p, li { white-space: pre-wrap; }
        <width>215</width>
        <height>95</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;</string>
      </property>
      <property name="readOnly">
       <bool>true</bool>
@@ -639,8 +723,14 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size : 14px;
+font-weight: bold;</string>
      </property>
      <property name="text">
       <string/>
@@ -654,6 +744,9 @@ p, li { white-space: pre-wrap; }
        <width>215</width>
        <height>95</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;</string>
      </property>
      <property name="readOnly">
       <bool>true</bool>
@@ -706,11 +799,21 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>620</x>
+     <x>590</x>
      <y>785</y>
-     <width>141</width>
+     <width>171</width>
      <height>28</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 200px;
+border: 2px solid black;</string>
    </property>
    <property name="text">
     <string>Return to Main Menu</string>

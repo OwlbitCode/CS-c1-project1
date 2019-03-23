@@ -37,6 +37,10 @@
   <property name="whatsThis">
    <string/>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #ccf2ff;
+QMessageBox {background-color: white;}</string>
+  </property>
   <widget class="QLabel" name="iRobotLabel">
    <property name="geometry">
     <rect>
@@ -83,10 +87,14 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;
+font-size : 14px;</string>
     </property>
     <property name="text">
      <string/>
@@ -101,6 +109,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
    </widget>
    <widget class="QComboBox" name="robotAComboBox">
     <property name="geometry">
@@ -110,6 +121,9 @@
       <width>210</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
     </property>
    </widget>
    <widget class="QLabel" name="robotAPicLabel">
@@ -154,6 +168,9 @@
       <width>85</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
     </property>
     <property name="text">
      <string/>
@@ -254,6 +271,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="shippingAddressLineTwo">
     <property name="geometry">
@@ -263,6 +283,9 @@
       <width>270</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
     </property>
    </widget>
    <widget class="QLabel" name="shippingAddressLabel">
@@ -314,6 +337,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -326,6 +352,9 @@
       <width>270</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
     </property>
    </widget>
    <widget class="Line" name="addressVLine">
@@ -384,6 +413,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
     <item>
      <property name="text">
       <string>VISA</string>
@@ -425,6 +457,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
    </widget>
    <widget class="QLabel" name="creditCardNameLabel">
     <property name="geometry">
@@ -456,6 +491,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
    </widget>
    <widget class="QLabel" name="creditCardExpireLabel">
     <property name="geometry">
@@ -486,6 +524,9 @@
       <width>30</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
     </property>
     <property name="text">
      <string/>
@@ -520,6 +561,9 @@
       <width>30</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
     </property>
     <property name="text">
      <string/>
@@ -558,6 +602,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -588,6 +635,16 @@
      <height>28</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
+   </property>
    <property name="text">
     <string>Cancel</string>
    </property>
@@ -607,6 +664,16 @@
    <property name="whatsThis">
     <string/>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
+   </property>
    <property name="text">
     <string>Place Order</string>
    </property>
@@ -623,6 +690,9 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white;</string>
+   </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
@@ -638,6 +708,9 @@
      <width>85</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white;</string>
    </property>
    <property name="text">
     <string/>
@@ -747,6 +820,9 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white;</string>
+   </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
@@ -762,6 +838,9 @@
      <width>85</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -793,10 +872,14 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;
+font-size : 14px;</string>
     </property>
     <property name="text">
      <string/>
@@ -811,6 +894,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
    </widget>
    <widget class="QComboBox" name="robotBComboBox">
     <property name="geometry">
@@ -820,6 +906,9 @@
       <width>210</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
     </property>
    </widget>
    <widget class="QLabel" name="robotBPicLabel">
@@ -865,6 +954,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -899,10 +991,14 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;
+font-size : 14px;</string>
     </property>
     <property name="text">
      <string/>
@@ -917,6 +1013,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
+    </property>
    </widget>
    <widget class="QComboBox" name="robotCComboBox">
     <property name="geometry">
@@ -926,6 +1025,9 @@
       <width>210</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
     </property>
    </widget>
    <widget class="QLabel" name="robotCPicLabel">
@@ -970,6 +1072,9 @@
       <width>85</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;</string>
     </property>
     <property name="text">
      <string/>

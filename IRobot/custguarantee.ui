@@ -7,20 +7,31 @@
     <x>0</x>
     <y>0</y>
     <width>674</width>
-    <height>485</height>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Customer Guarantee</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #ccf2ff;</string>
   </property>
   <widget class="QTextEdit" name="MoneyBackG">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>401</width>
-     <height>331</height>
+     <width>411</width>
+     <height>451</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:white;</string>
    </property>
    <property name="readOnly">
     <bool>true</bool>
@@ -29,27 +40,33 @@
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#3a65ff;&quot;&gt;90 Day Money Back Guarantee! &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#5a5a5a;&quot;&gt;Sleep comfortably knowing that if you are not 100% satisfied with your new robot, you have 90 days to return the robot back to us. You can do this by selecting the &amp;quot;contact us&amp;quot;  button below!&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#5a5a5a;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Sleep comfortably knowing that if you are not 100% satisfied with your new robot, you have 90 days to return the robot back to us. You can do this by selecting the &amp;quot;contact us&amp;quot;  button below!&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#0055ff;&quot;&gt;Return Procedure&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#5a5a5a;&quot;&gt;Simply click the &amp;quot;contact&amp;quot; us button below and let us know the reason why you want a return. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#5a5a5a;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Simply click the &amp;quot;contact&amp;quot; us button below and let us know the reason why you want a return. &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#0055ff;&quot;&gt;Our Promise&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#888888;&quot;&gt;iRobots is dedicated to the design and manufacture of our highly functional  robots with 100% effectiveness in detecting bombs.We just know that you are going to love your robot and we guarantee customer satisfaction 100%. However, we promise that if you are not 100% happy with your robot, our team will help  make your return easy.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#888888;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;iRobots is dedicated to the design and manufacture of our highly functional  robots with 100% effectiveness in detecting bombs.We just know that you are going to love your robot and we guarantee customer satisfaction 100%. However, we promise that if you are not 100% happy with your robot, our team will help  make your return easy.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="contactUs">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>530</x>
      <y>390</y>
      <width>131</width>
      <height>23</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
    </property>
    <property name="text">
     <string>Contact us </string>
@@ -58,11 +75,21 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="main">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>390</y>
+     <x>530</x>
+     <y>440</y>
      <width>131</width>
      <height>23</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
    </property>
    <property name="text">
     <string>Return to Main</string>
@@ -72,9 +99,9 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>430</x>
-     <y>0</y>
+     <y>10</y>
      <width>231</width>
-     <height>311</height>
+     <height>251</height>
     </rect>
    </property>
    <property name="text">

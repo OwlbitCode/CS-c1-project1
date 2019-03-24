@@ -50,9 +50,10 @@ private:
     QString PRreasonVar2;
     QSqlDatabase database;
     bool keySelected;
-    void alphaSort();
-
     bool helpVisable;
+    QString cust;
+
+    void alphaSort();
     bool connectToCustomerList();
     void closeDatabase();
 

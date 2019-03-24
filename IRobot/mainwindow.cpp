@@ -32,6 +32,21 @@ void MainWindow::adminLogin(){
 }
 
 void MainWindow::customerLogin(){
+    QString Company = ui->CompanyNameLine->text();
+    connectToCustomerList();
+
+    QSqlQuery * qry = new QSqlQuery(database);
+
+    qry->prepare("select * from customers WHERE Company = '" + Company + "'" );
+    qry->exec();
+    if(!qry->first()){
+        QMessageBox::information(this, "Error",
+            "We cannot find your Company in List. Please request a Pamphlet",
+            QMessageBox::Ok);
+        closeDatabase();
+        return;
+    }
+    cust = Company;
     ui->stackedWidget->setCurrentIndex(1);
     ui->helpLabel1->hide();
     ui->helpLabel2->hide();
@@ -41,6 +56,8 @@ void MainWindow::customerLogin(){
     ui->helpLabel6->hide();
     ui->helpLabel7->hide();
     helpVisable = false;
+    qry->prepare("update customers set Recieved = 'yes' where Company = '" + Company+"'");
+    closeDatabase();
 }
 
 void MainWindow::logout(){
@@ -262,7 +279,8 @@ void MainWindow::on_RPMainRequestPamphletButton_clicked()
     ui->RPCompanyNamelineEdit->clear();
     ui->RPAddressOneLineEdit->clear();
     ui->RPAddressTwoLineEdit->clear();
-    ui->RPInterestcomboBox->clear();
+    //ui->RPInterestcomboBox->clear();
+    ui->RPInterestcomboBox->setCurrentText(0);
 
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -285,7 +303,7 @@ void MainWindow::on_RPMainRequestPamphletButton_clicked()
  ***************************************************************************/
 void MainWindow::on_RPSubmitButton_clicked()
 {
-    companyNameVar= ui->RPCompanyNamelineEdit->text();
+    companyNameVar = ui->RPCompanyNamelineEdit->text();
     qDebug() << "Testing companyNameVar value" << companyNameVar;
 
     address1Var= ui->RPAddressOneLineEdit->text();
@@ -310,6 +328,20 @@ void MainWindow::on_RPSubmitButton_clicked()
         break;
     }
 
+    connectToCustomerList();
+    QSqlQuery * qry = new QSqlQuery();
+    qry->prepare("select * from customers WHERE Company = '" + companyNameVar + "'" );
+    qry->exec();
+
+    if(qry->first()){
+        QMessageBox::information(this, "Error",
+            "An account with that company name already exists",
+            QMessageBox::Ok);
+        closeDatabase();
+        return;
+    }
+    QString address = address1Var + ", " + address2Var;
+
         qDebug() << "Testing customer interest choice" << PRreasonVar2;
 
     if (companyNameVar == "" || address1Var == "" || address2Var == "" || PRreasonVar2 == "")
@@ -320,11 +352,18 @@ void MainWindow::on_RPSubmitButton_clicked()
     else
     {
        //need to store into the data base
+       qry->prepare("insert into customers (Company,Address,Interest) values ('"+companyNameVar+"','" + address + "' , '"+PRreasonVar2+"')");
+       if(qry->exec())
+            qDebug()<<("added");
+       else
+            qDebug()<<("add failed");
+       qDebug()<< address;
 
        ui->RPCompanyNamelineEdit->clear();
        ui->RPAddressOneLineEdit->clear();
        ui->RPAddressTwoLineEdit->clear();
-       ui->RPInterestcomboBox->clear();
+       //ui->RPInterestcomboBox->clear();
+       ui->RPInterestcomboBox->setCurrentIndex(0);
 
        QMessageBox::information(this, "Thank you","Thanks for submitting. A representative will get back to you shortly!",QMessageBox::Ok);
 
@@ -332,6 +371,7 @@ void MainWindow::on_RPSubmitButton_clicked()
 
        ui->stackedWidget->setCurrentIndex(0);
     }
+    closeDatabase();
 }
 
 void MainWindow::viewReviews(){
@@ -748,16 +788,17 @@ void MainWindow::alphaSort()
     }else{
         qry->prepare("select * from customers where Value = 'key' ORDER BY Company ASC");
     }
-
+;
     qry->exec();
     modal->setQuery(*qry);
     ui->tableView->setModel(modal);
 
     qDebug() << (modal->rowCount());
-    ui->tableView->setColumnWidth(0,160);
-    ui->tableView->setColumnWidth(1,260);
-    ui->tableView->setColumnWidth(2,150);
-    ui->tableView->setColumnWidth(3,70);
+    ui->tableView->setColumnWidth(0,142);
+    ui->tableView->setColumnWidth(1,267);
+    ui->tableView->setColumnWidth(2,125);
+    ui->tableView->setColumnWidth(3,65);
+    ui->tableView->setColumnWidth(4, 65);
 
 }
 

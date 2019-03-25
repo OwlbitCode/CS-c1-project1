@@ -5,17 +5,20 @@
 #include "productWindow.h"
 #include <QWidget>
 #include <QDebug>
+#include "customer.h"
+
 //#include<QString>
 //#include <Qsql>
 
 using namespace std;
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    cust = nullptr;
 }
 
 MainWindow::~MainWindow()
@@ -25,6 +28,8 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::adminLogin(){
+   if(!("admin"==ui->CompanyNameLine->text()))
+       return;
    ui->stackedWidget->setCurrentIndex(2);
    if(database.open()){
        closeDatabase();
@@ -46,7 +51,16 @@ void MainWindow::customerLogin(){
         closeDatabase();
         return;
     }
-    cust = Company;
+    QString address, key, interest;
+    qry->prepare("select * from customers WHERE Company = '" + Company + "'");
+    qry->exec();
+    address=qry->value(1).toString();
+    interest=qry->value(2).toString();
+    key=qry->value(3).toString();
+
+    cust = new customer(Company, address, key, interest);
+    customer * current = new customer(*cust);
+    ui->CompanyLabel->setText(current->getCompany());
     ui->stackedWidget->setCurrentIndex(1);
     ui->helpLabel1->hide();
     ui->helpLabel2->hide();
@@ -817,4 +831,8 @@ void MainWindow::key(){
 
 void MainWindow::breakEverything(){
     this->close();
+}
+
+customer* MainWindow::getCustomer(){
+    return cust;
 }

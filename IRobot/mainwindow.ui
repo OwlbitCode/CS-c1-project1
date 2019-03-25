@@ -286,33 +286,7 @@ border: 2px solid black;</string>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="2" column="1">
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="6" column="1">
-        <spacer name="verticalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="7" column="1">
+       <item row="10" column="1">
         <widget class="QPushButton" name="pushButton_7">
          <property name="styleSheet">
           <string notr="true">font-weight: bold;
@@ -329,15 +303,28 @@ border: 2px solid black;</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
+       <item row="9" column="1">
+        <spacer name="verticalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="2">
         <widget class="QLabel" name="helpLabel1">
          <property name="text">
           <string>Click the &quot;Our Products&quot; Button to view and purchase the products we have for sale</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <spacer name="verticalSpacer_5">
+       <item row="5" column="1">
+        <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -350,6 +337,19 @@ border: 2px solid black;</string>
         </spacer>
        </item>
        <item row="3" column="1">
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="6" column="1">
         <widget class="QPushButton" name="opButton">
          <property name="styleSheet">
           <string notr="true">font-weight: bold;
@@ -366,7 +366,7 @@ border: 2px solid black;</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
+       <item row="12" column="1">
         <widget class="QPushButton" name="pushButton_6">
          <property name="styleSheet">
           <string notr="true">font-weight: bold;
@@ -383,7 +383,7 @@ border: 2px solid black;</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
+       <item row="7" column="1">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -396,34 +396,28 @@ border: 2px solid black;</string>
          </property>
         </spacer>
        </item>
-       <item row="7" column="2">
+       <item row="10" column="2">
         <widget class="QLabel" name="helpLabel2">
          <property name="text">
           <string>Click the &quot;Contact Us&quot; button to reach our team for further help </string>
          </property>
         </widget>
        </item>
-       <item row="11" column="2">
-        <widget class="QLabel" name="helpLabel4">
+       <item row="16" column="2">
+        <widget class="QLabel" name="helpLabel5">
          <property name="text">
-          <string>Click the &quot;Help&quot; button again to hide the help options </string>
+          <string>Click the &quot;Logout&quot; button to logout and return to the login screen</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="2">
-        <spacer name="horizontalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+       <item row="6" column="2">
+        <widget class="QLabel" name="helpLabel6">
+         <property name="text">
+          <string>Click the &quot;Operations&quot; button to view the details of our robots operating capabilities </string>
          </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
+        </widget>
        </item>
-       <item row="12" column="1">
+       <item row="15" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -436,28 +430,27 @@ border: 2px solid black;</string>
          </property>
         </spacer>
        </item>
-       <item row="3" column="2">
-        <widget class="QLabel" name="helpLabel6">
-         <property name="text">
-          <string>Click the &quot;Operations&quot; button to view the details of our robots operating capabilities </string>
-         </property>
-        </widget>
-       </item>
        <item row="13" column="2">
-        <widget class="QLabel" name="helpLabel5">
-         <property name="text">
-          <string>Click the &quot;Logout&quot; button to logout and return to the login screen</string>
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
-        </widget>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
-       <item row="9" column="2">
+       <item row="12" column="2">
         <widget class="QLabel" name="helpLabel3">
          <property name="text">
           <string>Click the &quot;Guarantee&quot; button to view our user guarantee</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
+       <item row="13" column="1">
         <spacer name="verticalSpacer_4">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -470,14 +463,72 @@ border: 2px solid black;</string>
          </property>
         </spacer>
        </item>
-       <item row="5" column="2">
+       <item row="8" column="2">
         <widget class="QLabel" name="helpLabel7">
          <property name="text">
           <string>Clidk &quot;Customer Reviews&quot;  to see what our other satisfied customers are saying about us</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
+       <item row="14" column="2">
+        <widget class="QLabel" name="helpLabel4">
+         <property name="text">
+          <string>Click the &quot;Help&quot; button again to hide the help options </string>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="1">
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="styleSheet">
+          <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
+         </property>
+         <property name="text">
+          <string>Help</string>
+         </property>
+        </widget>
+       </item>
+       <item row="16" column="1">
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="styleSheet">
+          <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
+         </property>
+         <property name="text">
+          <string>logout</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="styleSheet">
+          <string notr="true">font-weight: bold;
+font-size : 14px;
+color : black;
+background-color : #d6d6c2;
+border-radius : 6px;
+height : 25px;
+width : 125px;
+border: 2px solid black;</string>
+         </property>
+         <property name="text">
+          <string>Our Products</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
         <widget class="QPushButton" name="pushButton_20">
          <property name="styleSheet">
           <string notr="true">font-weight: bold;
@@ -495,57 +546,6 @@ border: 2px solid black;</string>
         </widget>
        </item>
        <item row="11" column="1">
-        <widget class="QPushButton" name="pushButton_8">
-         <property name="styleSheet">
-          <string notr="true">font-weight: bold;
-font-size : 14px;
-color : black;
-background-color : #d6d6c2;
-border-radius : 6px;
-height : 25px;
-width : 125px;
-border: 2px solid black;</string>
-         </property>
-         <property name="text">
-          <string>Help</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton_5">
-         <property name="styleSheet">
-          <string notr="true">font-weight: bold;
-font-size : 14px;
-color : black;
-background-color : #d6d6c2;
-border-radius : 6px;
-height : 25px;
-width : 125px;
-border: 2px solid black;</string>
-         </property>
-         <property name="text">
-          <string>Our Products</string>
-         </property>
-        </widget>
-       </item>
-       <item row="13" column="1">
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="styleSheet">
-          <string notr="true">font-weight: bold;
-font-size : 14px;
-color : black;
-background-color : #d6d6c2;
-border-radius : 6px;
-height : 25px;
-width : 125px;
-border: 2px solid black;</string>
-         </property>
-         <property name="text">
-          <string>logout</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1">
         <spacer name="verticalSpacer_6">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -557,6 +557,24 @@ border: 2px solid black;</string>
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="2" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_16">
+           <property name="text">
+            <string>Welcome</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="CompanyLabel">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -2339,8 +2357,8 @@ border: 2px solid black;</string>
    <slot>adminLogin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>298</x>
-     <y>423</y>
+     <x>794</x>
+     <y>551</y>
     </hint>
     <hint type="destinationlabel">
      <x>198</x>
@@ -2355,8 +2373,8 @@ border: 2px solid black;</string>
    <slot>customerLogin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>717</x>
-     <y>412</y>
+     <x>600</x>
+     <y>551</y>
     </hint>
     <hint type="destinationlabel">
      <x>362</x>
@@ -2371,8 +2389,8 @@ border: 2px solid black;</string>
    <slot>logout()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>72</x>
-     <y>569</y>
+     <x>73</x>
+     <y>562</y>
     </hint>
     <hint type="destinationlabel">
      <x>233</x>
@@ -2387,8 +2405,8 @@ border: 2px solid black;</string>
    <slot>logout()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>684</x>
-     <y>380</y>
+     <x>309</x>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
      <x>273</x>
@@ -2403,8 +2421,8 @@ border: 2px solid black;</string>
    <slot>viewProducts()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>123</y>
+     <x>109</x>
+     <y>155</y>
     </hint>
     <hint type="destinationlabel">
      <x>695</x>
@@ -2467,8 +2485,8 @@ border: 2px solid black;</string>
    <slot>requestPamphlet()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>488</x>
-     <y>404</y>
+     <x>638</x>
+     <y>551</y>
     </hint>
     <hint type="destinationlabel">
      <x>496</x>
@@ -2483,8 +2501,8 @@ border: 2px solid black;</string>
    <slot>viewCustomerList()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>361</x>
-     <y>380</y>
+     <x>309</x>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
      <x>355</x>
@@ -2499,8 +2517,8 @@ border: 2px solid black;</string>
    <slot>adminLogin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>809</x>
-     <y>549</y>
+     <x>99</x>
+     <y>542</y>
     </hint>
     <hint type="destinationlabel">
      <x>695</x>
@@ -2515,8 +2533,8 @@ border: 2px solid black;</string>
    <slot>populate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>849</x>
-     <y>123</y>
+     <x>798</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -2531,8 +2549,8 @@ border: 2px solid black;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>124</x>
-     <y>550</y>
+     <x>99</x>
+     <y>542</y>
     </hint>
     <hint type="destinationlabel">
      <x>117</x>
@@ -2547,8 +2565,8 @@ border: 2px solid black;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>249</x>
-     <y>555</y>
+     <x>99</x>
+     <y>542</y>
     </hint>
     <hint type="destinationlabel">
      <x>248</x>
@@ -2563,8 +2581,8 @@ border: 2px solid black;</string>
    <slot>deleteCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>369</x>
-     <y>555</y>
+     <x>99</x>
+     <y>542</y>
     </hint>
     <hint type="destinationlabel">
      <x>353</x>
@@ -2596,7 +2614,7 @@ border: 2px solid black;</string>
    <hints>
     <hint type="sourcelabel">
      <x>851</x>
-     <y>592</y>
+     <y>553</y>
     </hint>
     <hint type="destinationlabel">
      <x>469</x>
@@ -2611,8 +2629,8 @@ border: 2px solid black;</string>
    <slot>key()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>582</x>
-     <y>559</y>
+     <x>99</x>
+     <y>542</y>
     </hint>
     <hint type="destinationlabel">
      <x>588</x>
@@ -2627,8 +2645,8 @@ border: 2px solid black;</string>
    <slot>breakEverything()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>729</x>
-     <y>559</y>
+     <x>99</x>
+     <y>542</y>
     </hint>
     <hint type="destinationlabel">
      <x>699</x>
@@ -2644,11 +2662,11 @@ border: 2px solid black;</string>
    <hints>
     <hint type="sourcelabel">
      <x>202</x>
-     <y>570</y>
+     <y>550</y>
     </hint>
     <hint type="destinationlabel">
-     <x>230</x>
-     <y>545</y>
+     <x>139</x>
+     <y>172</y>
     </hint>
    </hints>
   </connection>

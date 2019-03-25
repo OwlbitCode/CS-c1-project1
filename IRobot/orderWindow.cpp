@@ -7,6 +7,8 @@
 #include "orderWindow.h"
 #include "ui_orderWindow.h"
 #include "productWindow.h"
+#include "customer.h"
+#include "mainwindow.h"
 
 /****************************************************************************
  * METHOD - OrderWindow

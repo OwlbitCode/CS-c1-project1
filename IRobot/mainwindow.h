@@ -12,7 +12,7 @@
 #include <QString>
 #include <QtSql>
 #include <QTextEdit>
-
+#include "customer.h"
 /*
 *  INPUT:
 *
@@ -36,6 +36,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    customer* getCustomer();
 
 private:
     Ui::MainWindow *ui;
@@ -51,7 +52,7 @@ private:
     QSqlDatabase database;
     bool keySelected;
     bool helpVisable;
-    QString cust;
+    customer * cust;
 
     void alphaSort();
     bool connectToCustomerList();

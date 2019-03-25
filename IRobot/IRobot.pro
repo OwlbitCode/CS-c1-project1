@@ -31,14 +31,16 @@ SOURCES += \
         custguarantee.cpp \
         contactus.cpp \
     orderWindow.cpp \
-    productWindow.cpp
+    productWindow.cpp \
+    customer.cpp
 
 HEADERS += \
         mainwindow.h \
         custguarantee.h \
         contactus.h \
     orderWindow.h \
-    productWindow.h
+    productWindow.h \
+    customer.h
 
 FORMS += \
         mainwindow.ui \

@@ -1,0 +1,5 @@
+<map id="OrderWindow::setOrderSubtotal" name="OrderWindow::setOrderSubtotal">
+<area shape="rect" id="node2" href="$class_order_window.html#aa2a0cfb3003fd66954cc540dd9db23b8" title="Sets the order shipping &amp; handling charge displayed or hidden. " alt="" coords="262,5,470,32"/>
+<area shape="rect" id="node3" href="$class_order_window.html#a6dfbb77a1a8911cc789062c6c00b7fe5" title="Sets and displays updated sales tax amount. " alt="" coords="260,56,472,83"/>
+<area shape="rect" id="node4" href="$class_order_window.html#af1b6d198cf89a68c63afa28bc986786a" title="Sets and displays updated total price for order. " alt="" coords="273,107,459,149"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="OrderWindow::setOrderShipping" name="OrderWindow::setOrderShipping">
+<area shape="rect" id="node2" href="$class_order_window.html#a9b1e24f50bfc70c3920932f58331f917" title="Sets and displays updated subtotal. " alt="" coords="261,56,468,83"/>
+<area shape="rect" id="node3" href="$class_order_window.html#a4fec739fb9e3c2c06fdf8afa7d94a4f9" title="Sets and displays the subtotal for Robot A. " alt="" coords="516,5,733,32"/>
+<area shape="rect" id="node4" href="$class_order_window.html#aa575a53f391f6bc103e89f2bf2fce91e" title="Sets and displays the subtotal for Robot B. " alt="" coords="516,56,733,83"/>
+<area shape="rect" id="node5" href="$class_order_window.html#a5283f60b1a3076038b08160b37542fdc" title="Sets and displays the subtotal for Robot C. " alt="" coords="516,107,733,133"/>
+</map>

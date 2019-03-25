@@ -1,0 +1,6 @@
+<map id="OrderWindow::setRobotASubtotal" name="OrderWindow::setRobotASubtotal">
+<area shape="rect" id="node2" href="$class_order_window.html#a9b1e24f50bfc70c3920932f58331f917" title="Sets and displays updated subtotal. " alt="" coords="271,56,477,83"/>
+<area shape="rect" id="node3" href="$class_order_window.html#aa2a0cfb3003fd66954cc540dd9db23b8" title="Sets the order shipping &amp; handling charge displayed or hidden. " alt="" coords="527,5,735,32"/>
+<area shape="rect" id="node4" href="$class_order_window.html#a6dfbb77a1a8911cc789062c6c00b7fe5" title="Sets and displays updated sales tax amount. " alt="" coords="525,56,737,83"/>
+<area shape="rect" id="node5" href="$class_order_window.html#af1b6d198cf89a68c63afa28bc986786a" title="Sets and displays updated total price for order. " alt="" coords="538,107,725,149"/>
+</map>

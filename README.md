@@ -11,4 +11,4 @@ repo for the first project for c1
 
 [![HAHA](https://img.shields.io/badge/WE%20MADE%20A%20LABEL-HI%20JON-ff00ff.svg)](https://www.pbs.org/wgbh/masterpiece/shows/downton-abbey/)
 
-[![Yall dumb](https://img.shields.io/badge/Yall%20Dumb-Like%20real%20dumb-ff00ff.svg)](https://isitchristmas.com/)
+[![Yall dumb](https://img.shields.io/badge/Y'all%20Dumb-Like%20real%20dumb-ff00ff.svg)](https://isitchristmas.com/)

@@ -10,3 +10,5 @@ repo for the first project for c1
 [![Artifacts Folder](https://img.shields.io/badge/Artifacts-Click%20here%20to%20view%20folder%20-purple.svg)](https://drive.google.com/drive/folders/1k4THpVhGVOyMag9B0azLtj3kBvJXkrwO?usp=sharing)  [![SQLite](https://img.shields.io/badge/SQL-Click%20here%20to%20view%20tutorial%20-blue.svg)](https://www.tutorialspoint.com/sqlite/index.htm)
 
 [![HAHA](https://img.shields.io/badge/WE%20MADE%20A%20LABEL-HI%20JON-ff00ff.svg)](https://www.pbs.org/wgbh/masterpiece/shows/downton-abbey/)
+
+[![Yall dumb](https://img.shields.io/badge/Yall%20Dumb-Like%20real%20dumb-ff00ff.svg)
